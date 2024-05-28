@@ -1,14 +1,22 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-const Contents = ({ chapters, colors }) => {
+const Contents = ({
+  chapters,
+  colors = {
+    mainList: "text-slate-100 border-slate-400 shadow-slate-500",
+    heading: "text-slate-400",
+    sublist: "text-slate-400",
+  },
+}) => {
   return (
     <div>
       <ul
-        className={`${colors?.textLight} p-4 list-inside border-2 ${colors?.primary} shadow-md ${colors?.primary} max-w-xl`}
+        className={
+          "p-4 list-inside border-2 shadow-md mx-auto max-w-xl " +
+          colors.mainList
+        }
       >
-        <h2
-          className={`font-kreon text-4xl text-center ${colors?.primaryLighter}`}
-        >
+        <h2 className={"font-kreon text-4xl text-center " + colors.heading}>
           Spis treści:
         </h2>
         {chapters.map((chapter) => {
@@ -23,10 +31,10 @@ const Contents = ({ chapters, colors }) => {
           else
             return (
               <li key={crypto.randomUUID()} className="list-none">
-                <ul className=" list-inside">
+                <ul className={"list-inside " + colors.sublist}>
                   {chapter.map((subchapter) => (
                     <li
-                      className={`border-l pl-2 ml-3 my-2 ${colors?.primaryLighter}`}
+                      className="border-l pl-2 ml-3 my-2 "
                       key={crypto.randomUUID()}
                     >
                       <Link to={subchapter.to}>{subchapter.text}</Link>
