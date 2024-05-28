@@ -1,20 +1,36 @@
 import PropTypes from "prop-types";
-const Contents = ({ chapters }) => {
+import { Link } from "react-router-dom";
+const Contents = ({ chapters, colors }) => {
   return (
     <div>
-      <ul className="text-white list-decimal p-4 list-inside border-2 border-green-400 shadow-md shadow-green-500 max-w-xl">
-        <h2 className="font-kreon text-4xl text-center text-green-400">
+      <ul
+        className={`${colors?.textLight} p-4 list-inside border-2 ${colors?.primary} shadow-md ${colors?.primary} max-w-xl`}
+      >
+        <h2
+          className={`font-kreon text-4xl text-center ${colors?.primaryLighter}`}
+        >
           Spis treści:
         </h2>
         {chapters.map((chapter) => {
           if (!Array.isArray(chapter))
-            return <li key={crypto.randomUUID()}>{chapter}</li>;
+            return (
+              <li key={crypto.randomUUID()}>
+                <Link className="text-xl font-bold" to={chapter.to}>
+                  {chapter.text}
+                </Link>
+              </li>
+            );
           else
             return (
               <li key={crypto.randomUUID()} className="list-none">
-                <ul className="ml-5 list-decimal list-inside">
+                <ul className=" list-inside">
                   {chapter.map((subchapter) => (
-                    <li key={crypto.randomUUID()}>{subchapter}</li>
+                    <li
+                      className={`border-l pl-2 ml-3 my-2 ${colors?.primaryLighter}`}
+                      key={crypto.randomUUID()}
+                    >
+                      <Link to={subchapter.to}>{subchapter.text}</Link>
+                    </li>
                   ))}
                 </ul>
               </li>
@@ -26,5 +42,6 @@ const Contents = ({ chapters }) => {
 };
 Contents.propTypes = {
   chapters: PropTypes.array,
+  colors: PropTypes.object,
 };
 export default Contents;
