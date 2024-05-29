@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import Contents from "../../components/Contents/Contents";
 
 const Obiektowe = () => {
@@ -24,7 +25,9 @@ const Obiektowe = () => {
           heading: "text-green-400",
           sublist: "text-green-400",
         }}
+        optional={"mb-20"}
       />
+      <Outlet />
     </main>
   );
 };
