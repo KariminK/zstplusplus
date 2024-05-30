@@ -1,27 +1,27 @@
 import { describe, expect, it } from "vitest";
-import Section from "./Section";
+import CodeSection from "./CodeSection";
 import { render, screen } from "@testing-library/react";
 
 describe("section", () => {
   it("should have title", () => {
-    render(<Section title="Example title" />);
+    render(<CodeSection title="Example title" />);
     expect(
       screen.getByRole("heading", { name: "Example title" })
     ).toBeInTheDocument();
   });
   it("should have description", () => {
-    render(<Section description="example description" />);
+    render(<CodeSection description="example description" />);
     expect(screen.getByRole("paragraph").textContent).toMatch(
       "example description"
     );
   });
   it("should have code example", () => {
-    render(<Section code={`XYZ`} />);
+    render(<CodeSection code={`XYZ`} />);
     expect(screen.getByRole("code").textContent).toMatch(`XYZ`);
   });
   it("should render table from array given in props using first index array as table heading", () => {
     render(
-      <Section
+      <CodeSection
         table={[
           ["head1", "head2", "head3"],
           ["first1", "first2", "first3"],
