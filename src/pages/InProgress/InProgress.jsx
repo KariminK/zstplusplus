@@ -6,8 +6,8 @@ const InProgressPage = () => {
   console.log(rozdzial);
   return (
     <>
-      <h1 className="text-white text-5xl font-kreon text-center">
-        Nie znaleziono: {rozdzial}
+      <h1 className="text-white text-6xl mt-10 font-kreon text-center">
+        Nie znaleziono{rozdzial && `: ${rozdzial}`}
       </h1>
       <p className="text-center text-lg text-white">
         Być może jest w trakcie tworzenia

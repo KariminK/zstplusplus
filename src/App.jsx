@@ -10,6 +10,7 @@ const App = () => {
       <Route path="/obiektowe" element={<Obiektowe />}>
         <Route path=":rozdzial" element={<InProgressPage />} />
       </Route>
+      <Route path="/*" element={<InProgressPage />} />
       <Route
         path="/playground"
         element={
@@ -24,7 +25,7 @@ const App = () => {
               ["first1", "first2", "first3"],
               ["second1", "second2", "second3"],
             ]}
-            color={"green"}
+            color={"cyan"}
           />
         }
       />
