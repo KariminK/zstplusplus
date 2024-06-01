@@ -3,7 +3,7 @@ import Contents from "../../components/Contents/Contents";
 
 const Obiektowe = () => {
   return (
-    <main className="">
+    <>
       <h1 className="text-5xl font-kreon text-green-400 text-center mt-40 mb-10">
         Programowanie obiektowe
       </h1>
@@ -28,7 +28,7 @@ const Obiektowe = () => {
         optional={"mb-20"}
       />
       <Outlet />
-    </main>
+    </>
   );
 };
 export default Obiektowe;
