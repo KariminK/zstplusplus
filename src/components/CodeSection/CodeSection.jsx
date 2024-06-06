@@ -66,22 +66,26 @@ const CodeSection = ({ title, description, code, table, color = "green" }) => {
 
   return (
     <section
-      className={`text-white border rounded-md w-1/4 p-3 ${colors.borderColor}`}
+      className={`text-white border rounded-md p-3 flex-grow ${colors.borderColor}`}
     >
       <h1
         className={`font-bold font-kreon text-2xl mb-3 text-center ${colors.headingColor}`}
       >
         {title}
       </h1>
-      <p className={`text-md ${colors.textColor}`}>{description}</p>
-      {Boolean(code) && (
-        <code
-          className={`my-4 bg-gray-900 p-5 border ${colors.borderColor} block whitespace-pre font-code ${colors.codeColor}`}
-        >
-          {code}
-        </code>
-      )}
-      {tableEl}
+      <div className="flex justify-center flex-col items-center">
+        <p className={`text-lg ${colors.textColor} text-center`}>
+          {description}
+        </p>
+        {Boolean(code) && (
+          <code
+            className={`my-4 bg-gray-900 p-5 border ${colors.borderColor} block whitespace-pre font-code ${colors.codeColor}`}
+          >
+            {code}
+          </code>
+        )}
+        {tableEl}
+      </div>
     </section>
   );
 };

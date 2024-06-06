@@ -1,0 +1,104 @@
+{
+  "pliki c++": [
+    {
+      "title": "ifstream",
+      "description": "ifstream służy do odczytu danych plików",
+      "code": "ifstream nazwa(\"nazwa_pliku\");",
+      "color": "green"
+    },
+    {
+      "title": "ofstream",
+      "description": "ofstream służy do zapisu danych do pliku",
+      "code": "ofstream nazwa(\"nazwa_pliku\");",
+      "color": "green"
+    },
+    {
+      "title": "metoda .good()",
+      "description": "sprawdza, czy plik otworzył się poprawnie [zwraca typ bool]",
+      "code": "ifstream plik(\"tekst.txt\");\nif(plik.good()){\n\t// kod, który wykona się po poprawnym otworzeniu pliku\n}",
+      "color": "green"
+    },
+    {
+      "title": "Opcje ios do otwarcia pliku",
+      "table": [
+        ["Opcja", "Opis"],
+        [
+          "ios::app",
+          "Umieszcza wskaźnik na końcu pliku, dane mogą być zapisywane tylko na końcu pliku"
+        ],
+        [
+          "ios::ate",
+          "Umieszcza wskaźnik na końcu pliku w chwili otwarcia pliku"
+        ],
+        [
+          "ios::binary",
+          "Dane będą traktowane jako binarne, a nie jako tekstowe"
+        ],
+        [
+          "ios::trunc",
+          "secoPlik będzie obcinany do 0 bajtów [tj dane będą usuwane]"
+        ]
+      ],
+      "color": "green"
+    },
+    {
+      "title": "Strumieniowy odczyt danych",
+      "description": "Dane z ifstreama możemy odczytać tak jak dane z cin, jednak należy pamiętać o tym, że dane będą odczytane do białego znaku (m.in. spacji, tabulacji, nowej linii) analogicznie jak w cin.",
+      "code": "ifstream plik(\"tekst.txt\");\nstring str;\nplik >> str;",
+      "color": "green"
+    },
+    {
+      "title": "Odczyt danych za pomocą buforów",
+      "description": "odczytując dane za pomocą buforów korzystamy z metody .read(), która odczytuje daną ilość danych z pliku i wpisuje ją do bufora",
+      "code": "char bufor [100]; // bufor o wielkosci 100 znakow \nplik.read(bufor, 100); // odczytujemy 100 znakow do bufora",
+      "color": "green"
+    },
+    {
+      "title": "metoda .gcount()",
+      "description": "Bufor nie musi być zapełniony do końca danymi. Aby sprawdzić ile danych mieści się w buforze używamy metody .gcount()",
+      "code": "char bufor [100]; // bufor o wielkosci 100 znakow\nplik.read(bufor, 100); // odczytujemy tyle danych, ile się zmieści do bufora\ncout << \"Do bufora wczytano: \" << plik.gcount() << \" znakow\";",
+      "color": "green"
+    },
+    {
+      "title": "funkcja getline()",
+      "description": "Funkcja getline() służy do pobierania danych liniami (tj. jeden getline pobierze nam dane do znaku nowej linii \\n). Funkcja getline() może przyjmować 3 argument, który będzie definiował separator do którego będzie odczytywał dane (domyślnie znak nowej linii \\n",
+      "code": "string str;\ngetline(plik, str);\n//zamiast pliku możemy dać tam cin",
+      "color": "green"
+    },
+    {
+      "title": "Zapis danych za pomocą strumienia",
+      "description": "Zapis danych za pomocą strumienia będzie odbywał się na podobnej zasadzie co wyświetlanie danych w konsoli cout. Jedyną różnicą jest to, że docelowym miejscem danych jest plik, a nie konsola",
+      "code": "ofstream plik(\"tekst.txt\");\nplik << \"Jakies dane\";",
+      "color": "green"
+    },
+    {
+      "title": "Zapis danych za pomocą buforów",
+      "description": "Zapis danych za pomocą buforów wymaga użycia .write(), które do naszego otwartego pliku wstawia dane z podanego przez nas buforu",
+      "code": "ofstream plik(\"tekst.txt\");\nstring dane = \"Przykładowe dane do zapisu do pliku.\";\nplik.write(dane.c_str(), strlen(dane));",
+      "color": "green"
+    },
+    {
+      "title": "seekg() i seekp()",
+      "description": "Obie te funkcje służą do ustawiania pozycji wskaźnika w pliku. seekg działa dla funkcji odczytujących dane, seekp działa dla funkcji zapisujących dane",
+      "code": "ifstream odczyt(\"plik.txt\");\nofstream zapis(\"plik.txt\");\nodczyt.seekg(przesuniecie, kierunek?);\nzapis.seekp(przesuniecie, kierunek?);",
+      "color": "green",
+      "table": [
+        ["Kierunek", "Opis"],
+        ["ios_base::beg", "Przesunięcie względem początku pliku (domyślne)"],
+        ["ios_base::cur", "Przesunięcie względem aktualnej pozycji wskaźnika"],
+        ["ios_base::end", "Przesunięcie względem końca pliku"]
+      ]
+    },
+    {
+      "title": "Zapis danych za pomocą buforów",
+      "description": "Obie funkcje zwracają aktualną pozycję wskaźnika w pliku. tellg() działa dla odczytu danych, zaś tellp() działa dla zapisu danych",
+      "color": "green"
+    },
+    {
+      "title": "remove() i rename()",
+      "description": "remove() usuwa plik, rename() zmienia nazwe pliku na inną. Obie funkcje zwracają 0, jeżeli operacja się powiedzie, lub coś innego, jeżeli się nie powiedzie. Żeby wykonać operację zmiany nazwy i/lub usunięcia pliku, strumień do tego pliku musi być zamknięty (tzn. plik musi być dostępny do operacji)",
+      "code": "remove(\"plik.txt\"); // usuwa plik plik.txt (jeśli istnieje)\nrename(\"stara_nazwa_pliku\", \"nowa_nazwa_pliku\"); // zmienia nazwe pliku (jeśli istnieje)",
+      "color": "green"
+    }
+  ]
+}

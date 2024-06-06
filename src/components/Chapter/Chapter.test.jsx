@@ -1,10 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import Chapter from "./Chapter";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Chapter", () => {
   it("Should have id given in props", () => {
-    render(<Chapter id="exampleId" />);
+    render(<Chapter id="exampleId" />, {
+      wrapper: BrowserRouter,
+    });
     expect(screen.getByRole("main").id).toBe("exampleId");
   });
   it("Should render bunch of CodeSections based on data given in props", () => {
@@ -24,7 +27,8 @@ describe("Chapter", () => {
             color: "emerald",
           },
         ]}
-      />
+      />,
+      { wrapper: BrowserRouter }
     );
     const headings = screen.getAllByRole("heading");
     const descriptions = screen.getAllByRole("paragraph");

@@ -3,12 +3,13 @@ import Homepage from "./pages/Home/Homepage";
 import Obiektowe from "./pages/Obiektowe/Obiektowe";
 import InProgressPage from "./pages/InProgress/InProgress";
 import CodeSection from "./components/CodeSection/CodeSection";
+import Chapter from "./components/Chapter/Chapter";
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
       <Route path="/obiektowe" element={<Obiektowe />}>
-        <Route path=":rozdzial" element={<InProgressPage />} />
+        <Route path=":chapter" element={<Chapter />} />
       </Route>
       <Route path="/*" element={<InProgressPage />} />
       <Route
