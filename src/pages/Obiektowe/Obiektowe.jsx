@@ -9,16 +9,8 @@ const Obiektowe = () => {
       </h1>
       <Contents
         chapters={[
-          { to: "/pliki", text: "Obsługa plików" },
-          [
-            { to: "/pliki#fstream", text: "fstream" },
-            { to: "/pliki#seekg", text: "seekg i seekp" },
-          ],
-          { to: "/obiektyphp", text: "Klasy i obiekty w PHP" },
-          [
-            { to: "/obiektyphp#konstruktor", text: "Konstruktor" },
-            { to: "/obiektyphp#destruktor", text: "Destruktor" },
-          ],
+          { to: "./pliki c++", text: "Obsługa plików" },
+          { to: "./klasy php", text: "Klasy i obiekty w PHP" },
         ]}
         colors={{
           mainList: "text-green-100 border-green-400 shadow-green-500",

@@ -25,7 +25,7 @@ const Contents = ({
         {chapters.map((chapter) => {
           if (!Array.isArray(chapter))
             return (
-              <li key={crypto.randomUUID()}>
+              <li className="my-2" key={crypto.randomUUID()}>
                 <Link className="text-xl font-bold" to={chapter.to}>
                   {chapter.text}
                 </Link>

@@ -100,5 +100,33 @@
       "code": "remove(\"plik.txt\"); // usuwa plik plik.txt (jeśli istnieje)\nrename(\"stara_nazwa_pliku\", \"nowa_nazwa_pliku\"); // zmienia nazwe pliku (jeśli istnieje)",
       "color": "green"
     }
+  ],
+  "klasy php": [
+    {
+      "title": "Tworzenie klasy",
+      "code": "class nazwaKlasy{\n\t// pola klasy\n\tprivate $pole1 // pole prywatne\n\tpublic $pole2 // pole publiczne\n};",
+      "color": "green"
+    },
+    {
+      "title": "Rodzaje pól",
+      "table": [
+        ["Rodzaj pola", "Opis", "Trzeba getter i setter?"],
+        ["public", "możemy się do niego dostać z każdego miejsca", "NIE"],
+        ["private", "możemy się do niego dostać tylko w obrębie klasy", "TAK"]
+      ],
+      "color": "green"
+    },
+    {
+      "title": "gettery i settery",
+      "description": "Getter to funkcja, która zwraca nam wartość pola prywatnego. Setter najczęściej w argumencie przyjmuje wartość i ustawia ją jako wartość pola prywatnego. Używamy je m. in dlatego, żeby móc walidować dane wrzucane do pól",
+      "code": "class nazwaKlasy{\n\tprivate $nazwaPola;\n\tfunction setNazwaPola($value){\n\t\t$this->nazwaPola = $value;\n\t}\n\tfunction getNazwaPola($value){\n\t\treturn $this->nazwaPola;\n\t}\n}",
+      "color": "green"
+    },
+    {
+      "title": "__construct() i __destruct",
+      "description": "__construct jest wywoływany przy tworzeniu klasy. W jego argumentach możemy podać wartości, które chcemy wpisać do pól. __destruct jest wywoływany przy usuwaniu obiektu",
+      "code": "class nazwaKlasy{\n\tpublic $nazwaPola;\n\tpublic $nazwaPola2;\n\tfunction __construct($wartosc1, $wartosc2){\n\t\t$this->nazwaPola = $wartosc1;\n\t\t$this->nazwaPola2 = $wartosc2;\n\t}\n\tfunction __destruct(){\n\t\techo \"Zniszczono obiekt\";\n\t}\n}\n$obiekt = new nazwaKlasy(\"x\", \"y\");\necho $obiekt->$nazwaPola.\"<br>\"; // x\necho $obiekt->$nazwaPola2.\"<br>\"; // y\nunset($obiekt); // Zniszczono obiekt",
+      "color": "green"
+    }
   ]
 }
