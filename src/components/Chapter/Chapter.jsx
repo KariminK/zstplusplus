@@ -1,17 +1,19 @@
 import PropTypes from "prop-types";
 import CodeSection from "../CodeSection/CodeSection";
 import { useNavigate, useParams } from "react-router-dom";
-import chapters from "/src/data/chapters.json";
 const Chapter = ({ id, sections = [] }) => {
   let sectionEls = [];
   const { chapter } = useParams();
   const navigate = useNavigate();
-
-  if (chapter != "" && chapter in chapters) {
-    sections = chapters[chapter];
-  } else {
-    navigate("/notFound");
+  if (typeof sections === "object" && !Array.isArray(sections)) {
+    sections = sections[chapter];
   }
+  useNavigate(() => {
+    if (chapter === "" || !(chapter in sections)) {
+      navigate("./notFound");
+    }
+  });
+
   sectionEls = sections.map((section) => {
     return (
       <CodeSection
@@ -37,7 +39,7 @@ const Chapter = ({ id, sections = [] }) => {
 };
 Chapter.propTypes = {
   id: PropTypes.string,
-  sections: PropTypes.arrayOf(PropTypes.object),
+  sections: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 export default Chapter;

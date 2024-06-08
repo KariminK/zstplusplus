@@ -67,7 +67,7 @@ const CodeSection = ({ title, description, code, table, color = "green" }) => {
   return (
     <section
       className={`text-white border rounded-md p-3 flex-grow ${colors.borderColor}`}
-      id={title.replaceAll(" ", "-")}
+      id={title?.replaceAll(" ", "-")}
     >
       <h1
         className={`font-bold font-kreon text-2xl mb-3 text-center ${colors.headingColor}`}
