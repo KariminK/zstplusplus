@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import CodeSection from "../CodeSection/CodeSection";
 import { useNavigate, useParams } from "react-router-dom";
-const Chapter = ({ id, sections = [] }) => {
+const Chapter = ({ id, sections = [], color }) => {
   let sectionEls = [];
   const { chapter } = useParams();
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Chapter = ({ id, sections = [] }) => {
         title={section.title}
         description={section.description}
         code={section.code}
-        color={section.color}
+        color={color}
         table={section.table}
       />
     );
@@ -40,6 +40,7 @@ const Chapter = ({ id, sections = [] }) => {
 Chapter.propTypes = {
   id: PropTypes.string,
   sections: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  color: PropTypes.string,
 };
 
 export default Chapter;
