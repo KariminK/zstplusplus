@@ -128,5 +128,12 @@
       "code": "class nazwaKlasy{\n\tpublic $nazwaPola;\n\tpublic $nazwaPola2;\n\tfunction __construct($wartosc1, $wartosc2){\n\t\t$this->nazwaPola = $wartosc1;\n\t\t$this->nazwaPola2 = $wartosc2;\n\t}\n\tfunction __destruct(){\n\t\techo \"Zniszczono obiekt\";\n\t}\n}\n$obiekt = new nazwaKlasy(\"x\", \"y\");\necho $obiekt->$nazwaPola.\"<br>\"; // x\necho $obiekt->$nazwaPola2.\"<br>\"; // y\nunset($obiekt); // Zniszczono obiekt",
       "color": "green"
     }
+  ],
+  "test": [
+    {
+      "title": "Xyz",
+      "description": "lorem ipsum dolor sit amet",
+      "code": "const xyz = ()=>{\n\treturn x;\n}"
+    }
   ]
 }

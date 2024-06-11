@@ -4,6 +4,7 @@ import MainContent from "./pages/MainContent/MainContent";
 import InProgressPage from "./pages/InProgress/InProgress";
 import Chapter from "./components/Chapter/Chapter";
 import obiektowe from "/src/data/obiektowe.json";
+import Writer from "./pages/Writer/Writer";
 const App = () => {
   return (
     <Routes>
@@ -38,7 +39,7 @@ const App = () => {
           element={<Chapter sections={obiektowe} color={"emerald"} />}
         />
       </Route>
-
+      <Route path="/writer" element={<Writer />} />
       <Route path="/*" element={<InProgressPage />} />
     </Routes>
   );
