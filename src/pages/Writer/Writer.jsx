@@ -1,10 +1,13 @@
 import { useState } from "react";
 import Label from "./Components/Label";
+import TableRow from "./Components/TableRow/TableRow";
 
 const Writer = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [code, setCode] = useState("");
+  const [rows, setRows] = useState(0);
+  const [columns, setColumns] = useState(2);
 
   const inputChangeHandle = (e, setState) => {
     e.preventDefault();
@@ -16,6 +19,19 @@ const Writer = () => {
       setCode(code + "\t");
     }
   };
+
+  const addToTableHandle = (e, state, setState) => {
+    e.preventDefault();
+    setState(state + 1);
+  };
+  const removeFromTableHandle = (e, state, setState) => {
+    e.preventDefault();
+    if (state === 0) return;
+    setState(state - 1);
+  };
+  const rowElements = [];
+  for (let i = 0; i < rows - 1; i++)
+    rowElements.push(<TableRow columns={columns} key={crypto.randomUUID()} />);
   const output = JSON.stringify({
     title,
     description,
@@ -58,6 +74,39 @@ const Writer = () => {
             value={code}
           ></textarea>
         </Label>
+        <h2 className="text-3xl text-white text-bold">Tabela</h2>
+        <div className="flex justify-between my-3">
+          <button
+            className="border-2 rounded-lg text-white font-bold p-3"
+            onClick={(e) => addToTableHandle(e, columns, setColumns)}
+          >
+            Dodaj kolumnę
+          </button>
+          <button
+            className="border-2 rounded-lg text-white font-bold p-3"
+            onClick={(e) => removeFromTableHandle(e, columns, setColumns)}
+          >
+            Usuń kolumnę
+          </button>
+          <button
+            className="border-2 rounded-lg text-white font-bold p-3"
+            onClick={(e) => addToTableHandle(e, rows, setRows)}
+          >
+            Dodaj wiersz
+          </button>
+          <button
+            className="border-2 rounded-lg text-white font-bold p-3"
+            onClick={(e) => removeFromTableHandle(e, rows, setRows)}
+          >
+            Usuń wiersz
+          </button>
+        </div>
+        <table className="w-full my-5">
+          <thead>
+            {rows > 0 && <TableRow columns={columns} header={true} />}
+          </thead>
+          <tbody>{rowElements}</tbody>
+        </table>
 
         <Label text={"Output:"}>
           <textarea

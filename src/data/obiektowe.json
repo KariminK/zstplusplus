@@ -3,20 +3,17 @@
     {
       "title": "ifstream",
       "description": "ifstream służy do odczytu danych plików",
-      "code": "ifstream nazwa(\"nazwa_pliku\");",
-      "color": "green"
+      "code": "ifstream nazwa(\"nazwa_pliku\");"
     },
     {
       "title": "ofstream",
       "description": "ofstream służy do zapisu danych do pliku",
-      "code": "ofstream nazwa(\"nazwa_pliku\");",
-      "color": "green"
+      "code": "ofstream nazwa(\"nazwa_pliku\");"
     },
     {
       "title": "metoda .good()",
       "description": "sprawdza, czy plik otworzył się poprawnie [zwraca typ bool]",
-      "code": "ifstream plik(\"tekst.txt\");\nif(plik.good()){\n\t// kod, który wykona się po poprawnym otworzeniu pliku\n}",
-      "color": "green"
+      "code": "ifstream plik(\"tekst.txt\");\nif(plik.good()){\n\t// kod, który wykona się po poprawnym otworzeniu pliku\n}"
     },
     {
       "title": "Opcje ios do otwarcia pliku",
@@ -38,50 +35,42 @@
           "ios::trunc",
           "secoPlik będzie obcinany do 0 bajtów [tj dane będą usuwane]"
         ]
-      ],
-      "color": "green"
+      ]
     },
     {
       "title": "Strumieniowy odczyt danych",
       "description": "Dane z ifstreama możemy odczytać tak jak dane z cin, jednak należy pamiętać o tym, że dane będą odczytane do białego znaku (m.in. spacji, tabulacji, nowej linii) analogicznie jak w cin.",
-      "code": "ifstream plik(\"tekst.txt\");\nstring str;\nplik >> str;",
-      "color": "green"
+      "code": "ifstream plik(\"tekst.txt\");\nstring str;\nplik >> str;"
     },
     {
       "title": "Odczyt danych za pomocą buforów",
       "description": "odczytując dane za pomocą buforów korzystamy z metody .read(), która odczytuje daną ilość danych z pliku i wpisuje ją do bufora",
-      "code": "char bufor [100]; // bufor o wielkosci 100 znakow \nplik.read(bufor, 100); // odczytujemy 100 znakow do bufora",
-      "color": "green"
+      "code": "char bufor [100]; // bufor o wielkosci 100 znakow \nplik.read(bufor, 100); // odczytujemy 100 znakow do bufora"
     },
     {
       "title": "metoda .gcount()",
       "description": "Bufor nie musi być zapełniony do końca danymi. Aby sprawdzić ile danych mieści się w buforze używamy metody .gcount()",
-      "code": "char bufor [100]; // bufor o wielkosci 100 znakow\nplik.read(bufor, 100); // odczytujemy tyle danych, ile się zmieści do bufora\ncout << \"Do bufora wczytano: \" << plik.gcount() << \" znakow\";",
-      "color": "green"
+      "code": "char bufor [100]; // bufor o wielkosci 100 znakow\nplik.read(bufor, 100); // odczytujemy tyle danych, ile się zmieści do bufora\ncout << \"Do bufora wczytano: \" << plik.gcount() << \" znakow\";"
     },
     {
       "title": "funkcja getline()",
       "description": "Funkcja getline() służy do pobierania danych liniami (tj. jeden getline pobierze nam dane do znaku nowej linii \\n). Funkcja getline() może przyjmować 3 argument, który będzie definiował separator do którego będzie odczytywał dane (domyślnie znak nowej linii \\n",
-      "code": "string str;\ngetline(plik, str);\n//zamiast pliku możemy dać tam cin",
-      "color": "green"
+      "code": "string str;\ngetline(plik, str);\n//zamiast pliku możemy dać tam cin"
     },
     {
       "title": "Zapis danych za pomocą strumienia",
       "description": "Zapis danych za pomocą strumienia będzie odbywał się na podobnej zasadzie co wyświetlanie danych w konsoli cout. Jedyną różnicą jest to, że docelowym miejscem danych jest plik, a nie konsola",
-      "code": "ofstream plik(\"tekst.txt\");\nplik << \"Jakies dane\";",
-      "color": "green"
+      "code": "ofstream plik(\"tekst.txt\");\nplik << \"Jakies dane\";"
     },
     {
       "title": "Zapis danych za pomocą buforów",
       "description": "Zapis danych za pomocą buforów wymaga użycia .write(), które do naszego otwartego pliku wstawia dane z podanego przez nas buforu",
-      "code": "ofstream plik(\"tekst.txt\");\nstring dane = \"Przykładowe dane do zapisu do pliku.\";\nplik.write(dane.c_str(), strlen(dane));",
-      "color": "green"
+      "code": "ofstream plik(\"tekst.txt\");\nstring dane = \"Przykładowe dane do zapisu do pliku.\";\nplik.write(dane.c_str(), strlen(dane));"
     },
     {
       "title": "seekg() i seekp()",
       "description": "Obie te funkcje służą do ustawiania pozycji wskaźnika w pliku. seekg działa dla funkcji odczytujących dane, seekp działa dla funkcji zapisujących dane",
       "code": "ifstream odczyt(\"plik.txt\");\nofstream zapis(\"plik.txt\");\nodczyt.seekg(przesuniecie, kierunek?);\nzapis.seekp(przesuniecie, kierunek?);",
-      "color": "green",
       "table": [
         ["Kierunek", "Opis"],
         ["ios_base::beg", "Przesunięcie względem początku pliku (domyślne)"],
@@ -91,21 +80,18 @@
     },
     {
       "title": "Zapis danych za pomocą buforów",
-      "description": "Obie funkcje zwracają aktualną pozycję wskaźnika w pliku. tellg() działa dla odczytu danych, zaś tellp() działa dla zapisu danych",
-      "color": "green"
+      "description": "Obie funkcje zwracają aktualną pozycję wskaźnika w pliku. tellg() działa dla odczytu danych, zaś tellp() działa dla zapisu danych"
     },
     {
       "title": "remove() i rename()",
       "description": "remove() usuwa plik, rename() zmienia nazwe pliku na inną. Obie funkcje zwracają 0, jeżeli operacja się powiedzie, lub coś innego, jeżeli się nie powiedzie. Żeby wykonać operację zmiany nazwy i/lub usunięcia pliku, strumień do tego pliku musi być zamknięty (tzn. plik musi być dostępny do operacji)",
-      "code": "remove(\"plik.txt\"); // usuwa plik plik.txt (jeśli istnieje)\nrename(\"stara_nazwa_pliku\", \"nowa_nazwa_pliku\"); // zmienia nazwe pliku (jeśli istnieje)",
-      "color": "green"
+      "code": "remove(\"plik.txt\"); // usuwa plik plik.txt (jeśli istnieje)\nrename(\"stara_nazwa_pliku\", \"nowa_nazwa_pliku\"); // zmienia nazwe pliku (jeśli istnieje)"
     }
   ],
   "klasy php": [
     {
       "title": "Tworzenie klasy",
-      "code": "class nazwaKlasy{\n\t// pola klasy\n\tprivate $pole1 // pole prywatne\n\tpublic $pole2 // pole publiczne\n};",
-      "color": "green"
+      "code": "class nazwaKlasy{\n\t// pola klasy\n\tprivate $pole1 // pole prywatne\n\tpublic $pole2 // pole publiczne\n};"
     },
     {
       "title": "Rodzaje pól",
@@ -113,20 +99,17 @@
         ["Rodzaj pola", "Opis", "Trzeba getter i setter?"],
         ["public", "możemy się do niego dostać z każdego miejsca", "NIE"],
         ["private", "możemy się do niego dostać tylko w obrębie klasy", "TAK"]
-      ],
-      "color": "green"
+      ]
     },
     {
       "title": "gettery i settery",
       "description": "Getter to funkcja, która zwraca nam wartość pola prywatnego. Setter najczęściej w argumencie przyjmuje wartość i ustawia ją jako wartość pola prywatnego. Używamy je m. in dlatego, żeby móc walidować dane wrzucane do pól",
-      "code": "class nazwaKlasy{\n\tprivate $nazwaPola;\n\tfunction setNazwaPola($value){\n\t\t$this->nazwaPola = $value;\n\t}\n\tfunction getNazwaPola($value){\n\t\treturn $this->nazwaPola;\n\t}\n}",
-      "color": "green"
+      "code": "class nazwaKlasy{\n\tprivate $nazwaPola;\n\tfunction setNazwaPola($value){\n\t\t$this->nazwaPola = $value;\n\t}\n\tfunction getNazwaPola($value){\n\t\treturn $this->nazwaPola;\n\t}\n}"
     },
     {
       "title": "__construct() i __destruct",
       "description": "__construct jest wywoływany przy tworzeniu klasy. W jego argumentach możemy podać wartości, które chcemy wpisać do pól. __destruct jest wywoływany przy usuwaniu obiektu",
-      "code": "class nazwaKlasy{\n\tpublic $nazwaPola;\n\tpublic $nazwaPola2;\n\tfunction __construct($wartosc1, $wartosc2){\n\t\t$this->nazwaPola = $wartosc1;\n\t\t$this->nazwaPola2 = $wartosc2;\n\t}\n\tfunction __destruct(){\n\t\techo \"Zniszczono obiekt\";\n\t}\n}\n$obiekt = new nazwaKlasy(\"x\", \"y\");\necho $obiekt->$nazwaPola.\"<br>\"; // x\necho $obiekt->$nazwaPola2.\"<br>\"; // y\nunset($obiekt); // Zniszczono obiekt",
-      "color": "green"
+      "code": "class nazwaKlasy{\n\tpublic $nazwaPola;\n\tpublic $nazwaPola2;\n\tfunction __construct($wartosc1, $wartosc2){\n\t\t$this->nazwaPola = $wartosc1;\n\t\t$this->nazwaPola2 = $wartosc2;\n\t}\n\tfunction __destruct(){\n\t\techo \"Zniszczono obiekt\";\n\t}\n}\n$obiekt = new nazwaKlasy(\"x\", \"y\");\necho $obiekt->$nazwaPola.\"<br>\"; // x\necho $obiekt->$nazwaPola2.\"<br>\"; // y\nunset($obiekt); // Zniszczono obiekt"
     }
   ],
   "test": [
