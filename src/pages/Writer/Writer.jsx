@@ -8,6 +8,7 @@ const Writer = () => {
   const [code, setCode] = useState("");
   const [rows, setRows] = useState(0);
   const [columns, setColumns] = useState(2);
+  const [table, setTable] = useState([]);
 
   const inputChangeHandle = (e, setState) => {
     e.preventDefault();
@@ -20,22 +21,56 @@ const Writer = () => {
     }
   };
 
-  const addToTableHandle = (e, state, setState) => {
+  const addToTableHandle = (e, state, setState, cols) => {
     e.preventDefault();
+    const newTable = structuredClone(table);
+    if (cols) {
+      for (let i = 0; i < newTable.length; i++) {
+        newTable[i].push(null);
+      }
+    } else {
+      newTable.push(new Array(columns));
+    }
+    setTable(newTable);
     setState(state + 1);
   };
-  const removeFromTableHandle = (e, state, setState) => {
+  const removeFromTableHandle = (e, state, setState, cols) => {
     e.preventDefault();
     if (state === 0) return;
+    const newTable = structuredClone(table);
+    if (cols) {
+      for (let i = 0; i < newTable.length; i++) {
+        newTable[i].pop(null);
+      }
+    } else {
+      newTable.pop(new Array(columns));
+    }
+    setTable(newTable);
     setState(state - 1);
+  };
+  const tableInputChangeHandle = (e, row, col) => {
+    console.log("row: ", row);
+    console.log("col: ", col);
+    console.log("val: ", e.target.value);
+    const newTable = structuredClone(table);
+    newTable[row][col] = e.target.value;
+    setTable(newTable);
   };
   const rowElements = [];
   for (let i = 0; i < rows - 1; i++)
-    rowElements.push(<TableRow columns={columns} key={crypto.randomUUID()} />);
+    rowElements.push(
+      <TableRow
+        columns={columns}
+        key={crypto.randomUUID()}
+        onInputChange={tableInputChangeHandle}
+        rowIndex={i + 1}
+      />
+    );
   const output = JSON.stringify({
     title,
     description,
     code,
+    table,
   });
   return (
     <section className="max-w-4xl mx-auto">
@@ -78,13 +113,13 @@ const Writer = () => {
         <div className="flex justify-between my-3">
           <button
             className="border-2 rounded-lg text-white font-bold p-3"
-            onClick={(e) => addToTableHandle(e, columns, setColumns)}
+            onClick={(e) => addToTableHandle(e, columns, setColumns, true)}
           >
             Dodaj kolumnę
           </button>
           <button
             className="border-2 rounded-lg text-white font-bold p-3"
-            onClick={(e) => removeFromTableHandle(e, columns, setColumns)}
+            onClick={(e) => removeFromTableHandle(e, columns, setColumns, true)}
           >
             Usuń kolumnę
           </button>
@@ -103,7 +138,14 @@ const Writer = () => {
         </div>
         <table className="w-full my-5">
           <thead>
-            {rows > 0 && <TableRow columns={columns} header={true} />}
+            {rows > 0 && (
+              <TableRow
+                columns={columns}
+                header={true}
+                onInputChange={tableInputChangeHandle}
+                rowIndex={0}
+              />
+            )}
           </thead>
           <tbody>{rowElements}</tbody>
         </table>
