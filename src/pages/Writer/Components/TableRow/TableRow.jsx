@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const TableRow = ({ columns, header, rowIndex, onInputChange }) => {
+const TableRow = ({ columns, header, rowIndex, onInputChange, data = [] }) => {
   const columnEls = [];
   for (let i = 0; i < columns; i++) {
     if (!header)
@@ -9,8 +9,8 @@ const TableRow = ({ columns, header, rowIndex, onInputChange }) => {
           <input
             type="text"
             className="bg-transparent w-full text-white p-2 border outline-none rounded"
-            name=""
-            id=""
+            name="column-input"
+            value={data[i]}
             onChange={(e) => onInputChange(e, rowIndex, i)}
           />
         </td>
@@ -21,8 +21,8 @@ const TableRow = ({ columns, header, rowIndex, onInputChange }) => {
           <input
             type="text"
             className="bg-transparent w-full text-white p-2 border outline-none rounded"
-            name=""
-            id=""
+            name="column-input"
+            value={data[i]}
             onChange={(e) => onInputChange(e, rowIndex, i)}
           />
         </th>
@@ -35,5 +35,6 @@ TableRow.propTypes = {
   header: PropTypes.bool,
   rowIndex: PropTypes.number,
   onInputChange: PropTypes.func,
+  data: PropTypes.arrayOf(PropTypes.string),
 };
 export default TableRow;

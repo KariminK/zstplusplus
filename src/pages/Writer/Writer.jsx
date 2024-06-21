@@ -64,6 +64,7 @@ const Writer = () => {
         key={crypto.randomUUID()}
         onInputChange={tableInputChangeHandle}
         rowIndex={i + 1}
+        data={table[i]}
       />
     );
   const output = JSON.stringify({
@@ -144,6 +145,7 @@ const Writer = () => {
                 header={true}
                 onInputChange={tableInputChangeHandle}
                 rowIndex={0}
+                data={table[0]}
               />
             )}
           </thead>
