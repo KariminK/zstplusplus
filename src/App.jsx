@@ -28,9 +28,9 @@ const App = () => {
       </Route>
 
       <Route
-        path="/ppsi"
+        path="/ppad"
         element={
-          <MainContent data={obiektowe} heading={"PPSI"} theme={"emerald"} />
+          <MainContent data={obiektowe} heading={"PPAD"} theme={"emerald"} />
         }
       >
         <Route path="notFound" element={<InProgressPage />} />

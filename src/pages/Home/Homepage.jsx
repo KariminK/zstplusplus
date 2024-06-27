@@ -19,8 +19,8 @@ const Homepage = () => {
         />
         <Card
           theme={"hover:shadow-emerald-500 border-emerald-500 text-emerald-500"}
-          to={"/PPSI"}
-          text={"PPSI"}
+          to={"/ppad"}
+          text={"PPAD"}
           img={ppsiImg}
         />
         <Card
