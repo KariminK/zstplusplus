@@ -55,7 +55,7 @@ describe("Writer Component", () => {
     await user.type(codeInput, "Code");
 
     const expectedOutput =
-      '{"title":"Title","description":"Description","code":"Code"}'
+      '{"title":"Title","description":"Description","code":"Code","table":[]}'
         .replace(/\n/g, "\\n")
         .replace(/\t/g, "\\t");
 

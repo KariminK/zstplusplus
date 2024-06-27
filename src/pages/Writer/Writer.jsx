@@ -26,10 +26,10 @@ const Writer = () => {
     const newTable = structuredClone(table);
     if (cols) {
       for (let i = 0; i < newTable.length; i++) {
-        newTable[i].push(null);
+        newTable[i].push("");
       }
     } else {
-      newTable.push(new Array(columns));
+      newTable.push(new Array(columns).fill(""));
     }
     setTable(newTable);
     setState(state + 1);
@@ -40,7 +40,7 @@ const Writer = () => {
     const newTable = structuredClone(table);
     if (cols) {
       for (let i = 0; i < newTable.length; i++) {
-        newTable[i].pop(null);
+        newTable[i].pop("");
       }
     } else {
       newTable.pop(new Array(columns));
@@ -49,9 +49,6 @@ const Writer = () => {
     setState(state - 1);
   };
   const tableInputChangeHandle = (e, row, col) => {
-    console.log("row: ", row);
-    console.log("col: ", col);
-    console.log("val: ", e.target.value);
     const newTable = structuredClone(table);
     newTable[row][col] = e.target.value;
     setTable(newTable);
@@ -61,10 +58,10 @@ const Writer = () => {
     rowElements.push(
       <TableRow
         columns={columns}
-        key={crypto.randomUUID()}
+        key={`row ${i}`}
         onInputChange={tableInputChangeHandle}
         rowIndex={i + 1}
-        data={table[i]}
+        data={table[i + 1]}
       />
     );
   const output = JSON.stringify({
