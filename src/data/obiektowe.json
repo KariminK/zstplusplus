@@ -112,11 +112,48 @@
       "code": "class nazwaKlasy{\n\tpublic $nazwaPola;\n\tpublic $nazwaPola2;\n\tfunction __construct($wartosc1, $wartosc2){\n\t\t$this->nazwaPola = $wartosc1;\n\t\t$this->nazwaPola2 = $wartosc2;\n\t}\n\tfunction __destruct(){\n\t\techo \"Zniszczono obiekt\";\n\t}\n}\n$obiekt = new nazwaKlasy(\"x\", \"y\");\necho $obiekt->$nazwaPola.\"<br>\"; // x\necho $obiekt->$nazwaPola2.\"<br>\"; // y\nunset($obiekt); // Zniszczono obiekt"
     }
   ],
-  "test": [
+  "Wektory": [
     {
-      "title": "Xyz",
-      "description": "lorem ipsum dolor sit amet",
-      "code": "const xyz = ()=>{\n\treturn x;\n}"
+      "title": "Tworzenie wektora",
+      "description": "",
+      "code": "vector<typ_elementow> nazwa_wektora{};\n\n//np:\nvector<int> liczby{1,2,3,4,5};",
+      "table": []
+    },
+    {
+      "title": "wektor.push_back(element);",
+      "description": "Dodaje element na koniec wektora",
+      "code": "vector<int> liczby{1,2,3,4,5};\nliczby.push_back(6);",
+      "table": []
+    },
+    {
+      "title": "wektor.pop_back();",
+      "description": "Usuwa element z konca wektora",
+      "code": "vector<int> liczby{1,2,3,4,5};\nliczby.pop_back();\n// 1,2,3,4",
+      "table": []
+    },
+    {
+      "title": "wektor.size();",
+      "description": "Zwraca liczbę elementów wektora",
+      "code": "vector<int> liczby{1,2,3,4,5};\nliczby.size() // 5",
+      "table": []
+    },
+    {
+      "title": "wektor.capacity()",
+      "description": "służy do sprawdzania pojemności wektora (tj. ilości zaalokowanej pamięci dla wektora)",
+      "code": "vector<int> liczby{1,2,3,4,5};\nliczby.capacity(); // 5\n",
+      "table": []
+    },
+    {
+      "title": "wektor.at(indeks)",
+      "description": "zwraca element o danym indeksie. Zabezpiecza nas przed wybraniem elementu z poza zakresu wektora",
+      "code": "vector<int> liczby{1,2,3,4,5};\nwektor.at(2) // 3\n",
+      "table": []
+    },
+    {
+      "title": "wektor[indeks]",
+      "description": "zwraca element o danym indeksie, nie zabezpiecza nas przed wyjęciem elementu spoza wektora",
+      "code": "vector<int> liczby{1,2,3,4,5};\nwektor[2] // 3\n",
+      "table": []
     }
   ]
 }
