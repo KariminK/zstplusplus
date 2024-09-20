@@ -27,18 +27,6 @@ const App = () => {
         />
       </Route>
 
-      <Route
-        path="/ppad"
-        element={
-          <MainContent data={obiektowe} heading={"PPAD"} theme={"emerald"} />
-        }
-      >
-        <Route path="notFound" element={<InProgressPage />} />
-        <Route
-          path=":chapter"
-          element={<Chapter sections={obiektowe} color={"emerald"} />}
-        />
-      </Route>
       <Route path="/writer" element={<Writer />} />
       <Route path="/*" element={<InProgressPage />} />
     </Routes>
