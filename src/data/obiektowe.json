@@ -154,6 +154,12 @@
       "description": "zwraca element o danym indeksie, nie zabezpiecza nas przed wyjęciem elementu spoza wektora",
       "code": "vector<int> liczby{1,2,3,4,5};\nwektor[2] // 3\n",
       "table": []
+    },
+    {
+      "title": "pętla for(auto e:wektor)",
+      "description": "Pętla, która przechodzi przez wszystkie elementy w wektorze",
+      "code": "vector<int> wektor{1,2,3,4,5,6,7,8};\nfor(auto e:wektor){\n\tcout << e << \" \";\n} // 1 2 3 4 5 6 7 8\n",
+      "table": []
     }
   ]
 }
