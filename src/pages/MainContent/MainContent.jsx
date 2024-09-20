@@ -92,7 +92,7 @@ const MainContent = ({ data, heading, theme }) => {
       <Outlet />
       <Link
         className={`${Theme.text.darker} block text-center my-6 ${Theme.text.hover} transition-colors text-xl`}
-        to={"/zstplusplus"}
+        to={"/"}
       >
         Powrót na stronę główną
       </Link>

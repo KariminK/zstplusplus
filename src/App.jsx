@@ -8,10 +8,10 @@ import Writer from "./pages/Writer/Writer";
 const App = () => {
   return (
     <Routes>
-      <Route path="/zstplusplus/" element={<Homepage />} />
+      <Route path="/" element={<Homepage />} />
 
       <Route
-        path="/zstplusplus/obiektowe"
+        path="/obiektowe"
         element={
           <MainContent
             data={obiektowe}
@@ -27,8 +27,8 @@ const App = () => {
         />
       </Route>
 
-      <Route path="/zstplusplus/writer" element={<Writer />} />
-      <Route path="/zstplusplus/*" element={<InProgressPage />} />
+      <Route path="/writer" element={<Writer />} />
+      <Route path="/*" element={<InProgressPage />} />
     </Routes>
   );
 };

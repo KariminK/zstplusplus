@@ -13,25 +13,25 @@ const Homepage = () => {
       <div className="flex justify-center gap-10 flex-wrap">
         <Card
           theme={"hover:shadow-green-500 border-green-500 text-green-500"}
-          to={"/zstplusplus/obiektowe"}
+          to={"/obiektowe"}
           text={"Obiektowe"}
           img={obiektoweImg}
         />
         <Card
           theme={"hover:shadow-emerald-500 border-emerald-500 text-emerald-500"}
-          to={"/zstplusplus/ppad"}
+          to={"/ppad"}
           text={"PPAD"}
           img={ppsiImg}
         />
         <Card
           theme={"hover:shadow-teal-500 border-teal-500 text-teal-500"}
-          to={"/zstplusplus/ppai"}
+          to={"/ppai"}
           text={"PSI/PPAI"}
           img={psiImg}
         />
         <Card
           theme={"hover:shadow-cyan-500 border-cyan-500 text-cyan-500"}
-          to={"/zstplusplus/szbd"}
+          to={"/szbd"}
           text={"SZBD"}
           img={szbdImg}
         />
