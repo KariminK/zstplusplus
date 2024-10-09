@@ -4,6 +4,7 @@ import MainContent from "./pages/MainContent/MainContent";
 import InProgressPage from "./pages/InProgress/InProgress";
 import Chapter from "./components/Chapter/Chapter";
 import obiektowe from "./data/obiektowe.json";
+import ppai from "./data/ppai.json";
 import Writer from "./pages/Writer/Writer";
 const App = () => {
   return (
@@ -24,6 +25,16 @@ const App = () => {
         <Route
           path=":chapter"
           element={<Chapter sections={obiektowe} color={"green"} />}
+        />
+      </Route>
+      <Route
+        path="/ppai"
+        element={<MainContent data={ppai} heading={"PPAI"} theme={"teal"} />}
+      >
+        <Route path="notFound" element={<InProgressPage />} />
+        <Route
+          path=":chapter"
+          element={<Chapter sections={ppai} color={"teal"} />}
         />
       </Route>
 

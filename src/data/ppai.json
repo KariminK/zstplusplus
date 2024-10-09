@@ -1,0 +1,76 @@
+{
+  "promise": [
+    {
+      "title": "Kod synchroniczny",
+      "description": "Kod synchroniczny to kod wykonujący się linijka po linijce. ",
+      "code": "console.log(1);\nconsole.log(2);\nconsole.log(3);\nconsole.log(4);\n// 1\n// 2\n// 3\n// 4",
+      "table": []
+    },
+    {
+      "title": "Kod asynchroniczny",
+      "description": "Kod asynchroniczny to kod, w którym operacje zajmują jakiś czas i są wrzucane do tzw. kolejki. Przykładem takiej operacji może być setTimeout, który opóźnia wykonanie kodu o podaną ilość milisekund",
+      "code": "setTimeout(()=>{\n\tconsole.log(1);\n}, 1000);\nconsole.log(2);\nsetTimeout(()=>{\n\tconsole.log(3);\n}, 0);\nconsole.log(4);\n// 2\n// 4\n// 3\n// po 1 sekundzie: 1",
+      "table": []
+    },
+    {
+      "title": "Obiekt klasy Promise",
+      "description": "Obiekt przyjmuje funkcje z dwoma argumentami.\nPierwszy to resolve (funkcja, którą wywołujemy po poprawnym wykonaniu promise'a)\nDrugi to reject (funkcja, którą wywołujemy po jakimś błędzie)",
+      "code": "const promise = new Promise((resolve, reject)=>{\n\t// ...\n});",
+      "table": []
+    },
+    {
+      "title": "Promise przed wykonaniem",
+      "description": "Domyślnie obiekt ma jedną właściwość: state, która ma wartość pending",
+      "code": "let promise = new Promise(() => {});\nconsole.log(promise);\n// { state: \"pending\" }",
+      "table": []
+    },
+    {
+      "title": "Promise po wykonaniu resolve()",
+      "description": "Po pomyślnym wykonaniu, promise ma dwie właściwości: state o wartości fulfilled i value o wartości podanej w funkcji resolve()",
+      "code": "let promise = new Promise((resolve) => {\n        resolve(\"wartość\");\n});\nconsole.log(promise);\n// { state: \"fulfilled\", value: \"wartość\" }",
+      "table": []
+    },
+    {
+      "title": "Promise po wykonaniu reject()",
+      "description": "Po niepomyślnym wykonaniu, promise ma dwie właściwości: state o wartości rejected i reason o wartości podanej w funkcji reject()",
+      "code": "let promise = new Promise((resolve, reject) => {\n\treject(new Error(\"blad\");\n});\nconsole.log(promise);\n// { state: \"rejected\", reason: Error }\n// uncaught (in promise) Error: blad\n// ...",
+      "table": []
+    },
+    {
+      "title": "Funkcja zwracająca promise",
+      "description": "promise po stworzeniu od razu zaczyna sie wykonywać. Aby temu zapobiec, tworzymy funkcję zwracającą promise",
+      "code": "function promiseFn() {\n  return new Promise((resolve, reject) => {\n    //...\n  });\n}",
+      "table": []
+    },
+    {
+      "title": "Promise.then()",
+      "description": "metoda .then przyjmuje funkcje z jednym argumentem (wartością promise'a), która wywołuje się po pomyślnym wykonaniu promise'a\n",
+      "code": "let promise = new Promise((resolve, reject) => {\n    setTimeout(() => {\n        resolve(\"wartosc\");\n    }, 1000);\n});\nconsole.log(promise); // {state: \"pending\"}\npromise.then((value) => {\n    console.log(value);\n});\n// po 1 sek: wartosc",
+      "table": []
+    },
+    {
+      "title": "Promise.catch()",
+      "description": "metoda .catch przyjmuje funkcje z jednym argumentem (wartością reject), która wywołuje się po błędnym wykonaniu promise'a\n",
+      "code": "let promise = new Promise((resolve, reject) => {\n    setTimeout(() => {\n        reject(new Error(\"blad\"));\n    }, 1000);\n});\nconsole.log(promise); // {state: \"pending\"}\npromise.catch((err) => {\n    console.log(err);\n});\n// po 1 sek: Error: blad ...",
+      "table": []
+    },
+    {
+      "title": "Promise.then().catch()",
+      "description": ".then() wywola się przy poprawnym wykonaniu promise'a, a .catch wywoła sie przy bledzie",
+      "code": "let promise = new Promise((resolve, reject) => {\n      setTimeout(() => {\n          if (1 > 2) {\n            resolve(\"prawidlowo\");\n          } else {\n            reject(new Error(\"blad\"));\n          }\n      }, 1000);\n});\nconsole.log(promise);\npromise\n    .then((value) => {\n          console.log(value);\n    })\n    .catch((err) => {\n          console.log(err);\n    });\n// po 1 sek: Error: blad \n\t\t",
+      "table": []
+    },
+    {
+      "title": "Łączenie promise'ów (tzw. Promise Chaining)",
+      "description": ".then() zwraca domyślnie promise, który w resolve przyjmuje to co zwraca funkcja podana w .then()",
+      "code": "function promisePierwszy() {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      resolve(\"pierwszy\");\n    }, 2000);\n  });\n}\nfunction promiseDrugi() {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      resolve(\"drugi\");\n    }, 1000);\n  });\n}\n\npromisePierwszy()\n  .then((val) => {\n    console.log(val);\n    return promiseDrugi();\n  })\n  .then((val) => {\n    console.log(val);\n  });\n// po 2 sek: pierwszy\n// po kolejnej 1 sek: drugi",
+      "table": []
+    },
+    {
+      "title": "Dodatkowe materiały",
+      "description": "https://javascript.info/promise-basics",
+      "code": "",
+      "table": []
+    }
+  ]
+}
