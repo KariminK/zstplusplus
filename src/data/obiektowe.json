@@ -191,5 +191,43 @@
       "code": "vector<int> W{1, 2, 3, 4, 5};\n\nW.erase(W.begin() + 2, W.end() - 1);\nfor (auto e : W){\n    cout << e << \" \";\n} // 1 2 5\n",
       "table": []
     }
+  ],
+  "klasy c++": [
+    {
+      "title": "Deklaracja klasy",
+      "description": "Pola klasy dzielimy na prywatne (private) i publiczne (public). Pola prywatne nie są dostępne poza klasą. Domyślnie pola klasy są prywatne.",
+      "code": "class przykladowa_klasa{\n\tint r; // prywatne\n\tint g; // prywatne\n\tpublic:\n\t\tint b; // publiczne\n\t\tint a; // publiczne\n}",
+      "table": []
+    },
+    {
+      "title": "Pliki nagłówkowe .h",
+      "description": "W plikach nagłówkowych podajemy deklarację klasy (tj. jakie właściwości i metody będzie ona posiadać)",
+      "code": "// przykladowa_klasa.h\nclass przykladowa_klasa{\n // wlasciwosci i metody klasy\n}",
+      "table": []
+    },
+    {
+      "title": "Plik cpp",
+      "description": "W pliku cpp zamieszczamy implementacje metod naszej klasy. Do dostania się do jej metod używamy podwójnego dwukropka \"::\"",
+      "code": "// przykladowa_klasa.h\nclass przykladowa_klasa{\n\tint wlasciwosc; // prywatne\n\tpublic:\n\t\tvoid przykladowaMetoda();\n        void metodaZArgumentem(int r);\n}\n\n\n// przykladowa_klasa.cpp\n#include \"przykladowa_klasa.h\"\nvoid przykladowa_klasa::przykladowaMetoda(){\n\t// co robi metoda\n}\nvoid przykladowa_klasa::metodaZArgumentem(int r){\n\t// co robi metoda\n}",
+      "table": []
+    },
+    {
+      "title": "Wskaźnik this",
+      "description": "this wskazuje nam na obiekt naszej klasy. Możemy dzięki niemu dostać się do prywatnych właściwości i metod klasy w metodach tej klasy.",
+      "code": "// przykladowa_klasa.h\nclass przykladowa_klasa{\n\tint r; // prywatne\n\tpublic:\n\t\tvoid przykladowaMetoda();\n}\n\n// przykladowa_klasa.cpp\n\n#include \"przykladowa_klasa.h\"\nvoid przykladowa_klasa::przykladowaMetoda(){\n\tthis->r = 9;\n\tcout << this->r; // 9\n}",
+      "table": []
+    },
+    {
+      "title": "Gettery",
+      "description": "Gettery, to metody klasy, które zwracają wartość danej właściwości.",
+      "code": "// osoba.h\n#include <string>\n\nclass osoba{\n\tstd::string name; // prywatne\n\tint wiek; // prywatne\npublic:\n\tstd::string getName(); // publiczna\n}\n\n\n//osoba.cpp\n#include <string>\n\nstd::string osoba::getName(){\n\treturn this->name;\n}",
+      "table": []
+    },
+    {
+      "title": "Settery",
+      "description": "Settery, to metody klasy, które ustawiają właściwość na podaną w argumencie wartość. Najczęściej nic nie zwracają (void)",
+      "code": "// osoba.h\n#include <string>\n\nclass osoba{\n\tstd::string name; // prywatne\n\tint wiek; // prywatne\npublic:\n\tstd::string getName(); // publiczna\n    void setName(std::string); // publiczna\n}\n\n\n//osoba.cpp\n#include <string>\n\nstd::string osoba::getName(){\n\treturn this->name;\n}\nvoid osoba::setName(std::string newName){\n\tthis->name = newName;\n}",
+      "table": []
+    }
   ]
 }
