@@ -1,75 +1,50 @@
 # ZSTPlusPlus
 
-**ZSTPlusPlus** is a platform designed to provide students with a comprehensive collection of notes for tests and exams in technical schools. Built with React and Vite, this platform allows users to easily navigate through subjects and topics, accessing essential study material stored in JSON files within the `data` folder.
+**ZSTPlusPlus** to platforma stworzona, żeby móc dodawać notatki z przedmiotów zawodowych na profilu Technik programista. Notatki są dodawane w plikach JSON w folderze data
 
-## Features
+## Preview
 
-- **Subject and Topic Navigation:** Easily browse through various subjects and topics to find the study material you need.
-- **JSON Data Loading:** All the notes are stored in JSON files, making it easy to update and maintain content without modifying the core code.
-- **Fast and Responsive:** Powered by Vite for lightning-fast development and React for a responsive and dynamic user interface.
-- **Modular Structure:** The project is designed with modularity in mind, making it easy to extend and add new features.
+Aplikacja dostępna jest pod linkiem https://karimink.github.io/zstplusplus/
 
-## Getting Started
+## Wymagania
 
-### Prerequisites
+- git
+- NodeJS + npm
 
-- Node.js (version 14.x or higher)
-- npm (version 6.x or higher) or yarn
+### Instalacja
 
-### Installation
+- Sklonuj repozytorium do wybranego folderu:
 
-1. Clone the repository:
+  ```bash
+  git clone https://github.com/karimink/ZSTPlusPlus.git
+  cd ZSTPlusPlus
+  ```
 
-   ```bash
-   git clone https://github.com/karimink/ZSTPlusPlus.git
-   cd ZSTPlusPlus
-   ```
+- Zainstaluj zależności za pomocą npm:
 
-2. Install the dependencies:
+  ```bash
+  npm install
+  ```
 
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+### Uruchom serwer
 
-### Running the Development Server
-
-To start the development server, run:
+Aby uruchomić serwer:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-The application will be accessible at `http://localhost:3000`.
+Aplikacja będzie dostępna pod linkiem http://localhost:5173/zstplusplus/
 
-### Building for Production
+### Writer
 
-To build the project for production, run:
+Dla łatwiejszego tworzenia notatek, dostępny jest pod ścieżką /Writer formularz, który ułatwia przekształcanie notatek na json.
 
-```bash
-npm run build
-# or
-yarn build
-```
+## Struktura notatek
 
-The built files will be output to the `dist` folder.
+Każdy "temat" to osoba właściwość. Jako klucz podaje się nazwe tematu, a jej wartością jest tablica, w której zamieszczane są obiekty z notatkami. Każdy obiekt notatki musi mieć tytuł. Może mieć ona opis, tabelę, czy też blok kodu.
 
-### Project Structure
-
-- `src/` - Contains the main source code of the application.
-  - `components/` - Reusable UI components.
-  - `pages/` - Main page components.
-  - `data/` - JSON files containing the notes for each subject and topic.
-  - `assets/` - Static assets such as images, styles, etc.
-- `public/` - Static files that will be served directly.
-- `dist/` - The output folder for production builds.
-
-### Data Structure
-
-All study notes are stored in JSON files within the `data` folder. Each JSON file corresponds to a specific subject or topic, making it easy to update and manage the content. The structure of a typical JSON file might look like this:
+### Przykład
 
 ```json
 {
@@ -88,15 +63,3 @@ All study notes are stored in JSON files within the `data` folder. Each JSON fil
   ]
 }
 ```
-
-## Contributing
-
-Contributions are welcome! If you have any suggestions or improvements, feel free to open an issue or submit a pull request.
-
-### Steps to Contribute
-
-1. Fork the repository.
-2. Create a new branch with your feature or fix: `git checkout -b my-new-feature`.
-3. Commit your changes: `git commit -am 'Add new feature'`.
-4. Push to the branch: `git push origin my-new-feature`.
-5. Submit a pull request.
