@@ -13,18 +13,19 @@ const TableColumn = ({ value, onInputChange, header }) => {
         />
       </th>
     );
-  else
+
+
     return (
-      <td className="border-2 p-5">
-        <input
-          type="text"
-          className="bg-transparent w-full text-white p-2 border outline-none rounded"
-          name="column-input"
-          value={value}
-          onChange={onInputChange}
-        />
-      </td>
-    );
+        <td className="border-2 p-5">
+          <input
+            type="text"
+            className="bg-transparent w-full text-white p-2 border outline-none rounded"
+            name="column-input"
+            value={value}
+            onChange={onInputChange}
+          />
+        </td>
+      );  
 };
 
 TableColumn.propTypes = {
