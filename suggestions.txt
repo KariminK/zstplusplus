@@ -3,3 +3,5 @@
 - let, i ogólnie mutowanie w 99% nie jest, dobre ponieważ bardzo zmniejsza czytelność kodu i może powodować więcej bugów przez jego nieprzewidywalność, lepiej używać const i stosować niemutowalne metody 
 - `early return` zamiast `if else` jest kolejnym spoko patternem zwiększającym czytelność kodu przykład w TableColumn.jsx
 - korzystnie z bardzo krótkich nazw zmiennych np. e może być mylące, nie wiadomo czy to error czy event czy coś jeszcze innego
+- przy podawaniu literałów jako propsów nie trzeba ich opakowywać w {}, sprawia to, że kod jest mniej czytelny
+- Array.prototype.pop() nie przyjmuje argumentów
