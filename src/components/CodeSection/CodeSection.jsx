@@ -39,6 +39,7 @@ const CodeSection = ({ title, description, code, table, color = "green" }) => {
           return (
             <td
               className={`border p-3 ${colors.borderColor}`}
+              // Takie korzystanie z kluczy kompletnie psuje reacta, nie do tego zostały stworzone, w dokumentacji można znaleźć jak powinno się to robić i do czego one są potrzebne https://react.dev/learn/rendering-lists
               key={crypto.randomUUID()}
             >
               {col}
