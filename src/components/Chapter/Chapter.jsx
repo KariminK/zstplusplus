@@ -8,12 +8,15 @@ const Chapter = ({ id, sections = [], color }) => {
   if (typeof sections === "object" && !Array.isArray(sections)) {
     sections = sections[chapter];
   }
+  // Z tego co kojarzę to useNavigate nie działa w ten sposób w v6, nie przyjmuje żadnych argumentów
   useNavigate(() => {
     if (chapter === "" || !(chapter in sections)) {
       navigate("./notFound");
     }
   });
 
+  // Takie praktyki sprawiają że kod jest bardzo nieczytelny, skoro używamy Array.map możemy przypisać jej rezultat do nowej zmiennej
+  // np. const sectionEls = sections.map((section) => {...}); i usunąć deklarację sectionEls z 5 linijki
   sectionEls = sections.map((section) => {
     return (
       <CodeSection
