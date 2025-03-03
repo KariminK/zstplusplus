@@ -229,5 +229,19 @@
       "code": "// osoba.h\n#include <string>\n\nclass osoba{\n\tstd::string name; // prywatne\n\tint wiek; // prywatne\npublic:\n\tstd::string getName(); // publiczna\n    void setName(std::string); // publiczna\n}\n\n\n//osoba.cpp\n#include <string>\n\nstd::string osoba::getName(){\n\treturn this->name;\n}\nvoid osoba::setName(std::string newName){\n\tthis->name = newName;\n}",
       "table": []
     }
+  ],
+  "klasy c++ cz. 2": [
+    {
+      "title": "Pole statyczne",
+      "description": "Jest to pole przywiązane do klasy i niezależne od jej obiektów (tj. Odwołujemy się do niego po klasie a nie po obiekcie)",
+      "code": "class Mobek{\n\tstatic int liczbaMobow;\n}\n\n// Odwolujemy sie tak\nMobek::liczbaMobow;",
+      "table": []
+    },
+    {
+      "title": "Pole stałe",
+      "description": "Nie możemy zmieniać jego wartości.",
+      "code": "class RGB{\n\tconst string format;\n}\n// Nie mozemy zmieniac wartosci pola format",
+      "table": []
+    }
   ]
 }
