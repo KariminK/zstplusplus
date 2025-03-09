@@ -232,6 +232,30 @@
   ],
   "klasy c++ cz. 2": [
     {
+      "title": "Konstruktor",
+      "description": "Konstruktor, to funkcja, która wywoła się po stworzeniu obiektu danej klasy. Jej nazwa to nazwa klasy.",
+      "code": "class RGB{\n\tint r;\n\tint g;\n\tint b;\n\tRGB(int, int, int); // konstruktor z trzema argumentami\n}",
+      "table": []
+    },
+    {
+      "title": "Przeciążenie konstruktora",
+      "description": "Konstruktor możemy przeciążyć tj. zdefiniować jego różne warianty w zależności od parametrów",
+      "code": "class RGB{\n\tint r;\n\tint g;\n\tint b;\n\tRGB(int, int, int); // konstruktor z trzema argumentami\n\tRGB(&RGB); // konstruktor kopiujący\n\tRGB(std::string); // konstruktor z jednym argumentem\n}",
+      "table": []
+    },
+    {
+      "title": "Lista inicjalizacyjna",
+      "description": "Jeśli używamy konstruktora do \"włożenia\" podanych wartości do obiektu, możemy to zrobić za pomocą listy initalizacyjnej",
+      "code": "// rgb.h\nclass RGB{\n\tint r;\n\tint g;\n\tint b;\n\tRGB(int, int, int);\n}\n//rgb.cpp\n\n//tradycyjny sposób\nRGB::RGB(int r, int g, int b){\n\tthis->r = r;\n\tthis->g = g;\n\tthis->b = b;\n}\n\n// lista initializacyjna\nRGB::RGB(int r, int g, int b): r(r), g(g), b(b) {}",
+      "table": []
+    },
+    {
+      "title": "Destruktor",
+      "description": "Destruktor to funkcja, która wywoła się przy usunięciu obiektu. Jej nazwa to tylda (\"~\") i nazwa klasy",
+      "code": "class RGB{\n\tint r;\n\tint g;\n\tint b;\n\t~RGB(); // destruktor\n}",
+      "table": []
+    },
+    {
       "title": "Pole statyczne",
       "description": "Jest to pole przywiązane do klasy i niezależne od jej obiektów (tj. Odwołujemy się do niego po klasie a nie po obiekcie)",
       "code": "class Mobek{\n\tstatic int liczbaMobow;\n}\n\n// Odwolujemy sie tak\nMobek::liczbaMobow;",
@@ -241,6 +265,18 @@
       "title": "Pole stałe",
       "description": "Nie możemy zmieniać jego wartości.",
       "code": "class RGB{\n\tconst string format;\n}\n// Nie mozemy zmieniac wartosci pola format",
+      "table": []
+    },
+    {
+      "title": "Obiekty stałe",
+      "description": "Jeśli stworzymy stały obiekt, to również metody nie będą mogły modyfikować jego właściwości. Aby rozwiązać ten problem, należy do metod w deklaracji klasy dodać słówko \"const\" (powstanie wtedy tzw. metoda stała). Warto od początku dawać słówko const metodom, które wiemy, że nie będą modyfikować obiektu (np. getterom).",
+      "code": "class RGB{\n\tint R;\n\tint G;\n\tint B;\n\tint getR(); // metoda\n\tint getG() const; // metoda stała\n}",
+      "table": []
+    },
+    {
+      "title": "Funkcje zaprzyjaźnione",
+      "description": "To funkcje, które mają dostęp do chronionych i prywatnych pól klasy, a jednocześnie nie należą do klasy. Aby zaprzyjaźnić funkcję z naszą klasą, w deklaracji klasy dodajemy słówko friend. ",
+      "code": "// rgb.h\nclass RGB{\n\tint r;\n\tint g;\n\tint b;\n\tRGB(int, int, int);\n\tfriend void printData(); // funkcja printData będzie miała dostęp do pól prywatnych\n}",
       "table": []
     }
   ]
