@@ -3,7 +3,6 @@ import notFound from "/src/assets/NotFound.png";
 
 const InProgressPage = () => {
   const { rozdzial } = useParams();
-  console.log(rozdzial);
   return (
     <>
       <h1 className="text-white text-6xl mt-10 font-kreon text-center">
