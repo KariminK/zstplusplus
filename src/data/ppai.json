@@ -72,5 +72,13 @@
       "code": "",
       "table": []
     }
+  ],
+  "codefun": [
+    {
+      "title": "Projekt memory",
+      "description": "",
+      "code": "const myCards = document.querySelectorAll(\".card\");\nconst text = document.getElementById(\"text\");\nconst secondsText = document.getElementById(\"seconds\");\nconst tensText = document.getElementById(\"tens\");\n\nlet resultArray = [];\nlet counter = 0;\nlet seconds = 0;\nlet tens = 0;\nlet interval;\nconst images = [\n  \"ace\",\n  \"brain\",\n  \"greenJoker\",\n  \"jack\",\n  \"king\",\n  \"queen\",\n  \"redJoker\",\n];\nconst copy = images.slice();\n\nconst allCards = images.concat(copy);\n// const allCards = [...images, ...copy];\n\n// adam - 1, acer\n// antek - 2, acer\n\nfunction mixCards(array) {\n  for (let i = 0; i < array.length; i++) {\n    let randomIndex = Math.floor(Math.random() * array.length);\n    const currentElement = array[i];\n    array[i] = array[randomIndex];\n    array[randomIndex] = currentElement;\n  }\n}\n\nconsole.log(allCards);\nmixCards(allCards);\nconsole.log(allCards);\n\nfunction changeClass(className) {\n  const flippedCards = document.querySelectorAll(\".flipped\");\n  flippedCards.forEach((card) => {\n    card.classList.remove(\"flipped\");\n    card.classList.add(className);\n  });\n}\n\nfunction init() {\n  myCards.forEach((card, index) => {\n    card.addEventListener(\"click\", () => {\n      if (\n        !card.classList.contains(\"flipped\") &&\n        !card.classList.contains(\"correct\")\n      ) {\n        card.classList.remove(\"reverse\");\n        card.classList.add(\"flipped\");\n        card.style.backgroundImage = `url(\"./img/${allCards[index]}.png\")`;\n        // card.style.backgroundImage = \"url(\" + allCards[index] + \")\"; - to samo\n        resultArray.push(allCards[index]);\n        card.style.pointerEvents = \"none\";\n        clearInterval(interval);\n        interval = setInterval(startTimer, 100);\n      }\n      if (resultArray.length > 1) {\n        if (resultArray[0] === resultArray[1]) {\n          changeClass(\"correct\");\n          counter++;\n          win();\n          resultArray = [];\n        } else {\n          changeClass(\"reverse\");\n          resultArray = [];\n        }\n      }\n    });\n  });\n}\ninit();\n",
+      "table": []
+    }
   ]
 }
