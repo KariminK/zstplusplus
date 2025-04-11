@@ -31,6 +31,13 @@ const CodeSection = ({ title, description, code, table, color = "green" }) => {
       colors.codeColor = "text-cyan-500";
       colors.tableBackgroundColor = "bg-cyan-900";
       break;
+    case "sky":
+      colors.borderColor = "border-sky-400";
+      colors.headingColor = "text-sky-400";
+      colors.textColor = "text-sky-100";
+      colors.codeColor = "text-sky-500";
+      colors.tableBackgroundColor = "bg-sky-900";
+      break;
   }
   if (Array.isArray(table)) {
     const rows = table.map((row, index) => {
@@ -39,8 +46,7 @@ const CodeSection = ({ title, description, code, table, color = "green" }) => {
           return (
             <td
               className={`border p-3 ${colors.borderColor}`}
-              key={crypto.randomUUID()}
-            >
+              key={crypto.randomUUID()}>
               {col}
             </td>
           );
@@ -48,8 +54,7 @@ const CodeSection = ({ title, description, code, table, color = "green" }) => {
           return (
             <th
               className={`border p-3 ${colors.tableBackgroundColor} ${colors.borderColor}`}
-              key={crypto.randomUUID()}
-            >
+              key={crypto.randomUUID()}>
               {col}
             </th>
           );
@@ -67,21 +72,18 @@ const CodeSection = ({ title, description, code, table, color = "green" }) => {
   return (
     <section
       className={`text-white border rounded-md p-3 flex-grow ${colors.borderColor}`}
-      id={title?.replaceAll(" ", "-")}
-    >
+      id={title?.replaceAll(" ", "-")}>
       <h1
-        className={`font-bold font-kreon text-2xl mb-3 text-center ${colors.headingColor}`}
-      >
+        className={`font-bold font-kreon text-2xl mb-3 text-center ${colors.headingColor}`}>
         {title}
       </h1>
-      <div className="flex justify-center flex-col items-center">
+      <div className="flex flex-col items-center justify-center">
         <p className={`text-lg ${colors.textColor} text-center`}>
           {description}
         </p>
         {Boolean(code) && (
           <code
-            className={`my-4 bg-gray-900 p-5 border ${colors.borderColor} block whitespace-pre font-code text-white`}
-          >
+            className={`my-4 bg-gray-900 p-5 border ${colors.borderColor} block whitespace-pre font-code text-white`}>
             {code}
           </code>
         )}

@@ -1,12 +1,27 @@
 import { Link, Outlet } from "react-router-dom";
 import Contents from "../../components/Contents/Contents";
 import PropTypes from "prop-types";
+
 const MainContent = ({ data, heading, theme }) => {
   const chapters = Object.keys(data).map((chapter) => {
     return { to: chapter, text: chapter.toUpperCase() };
   });
   let Theme = {};
   switch (theme) {
+    case "sky":
+      Theme = {
+        text: {
+          normal: "text-sky-400",
+          darker: "text-sky-500",
+          hover: "hover:text-sky-300",
+        },
+        contents: {
+          mainList: "text-sky-100 border-sky-400 shadow-sky-500",
+          heading: "text-sky-400",
+          sublist: "text-sky-400",
+        },
+      };
+      break;
     case "green":
       Theme = {
         text: {
@@ -80,8 +95,7 @@ const MainContent = ({ data, heading, theme }) => {
   return (
     <>
       <h1
-        className={`text-5xl font-kreon ${Theme.text.normal} text-center mt-40 mb-10`}
-      >
+        className={`text-5xl font-kreon ${Theme.text.normal} text-center mt-40 mb-10`}>
         {heading}
       </h1>
       <Contents
@@ -92,8 +106,7 @@ const MainContent = ({ data, heading, theme }) => {
       <Outlet />
       <Link
         className={`${Theme.text.darker} block text-center my-6 ${Theme.text.hover} transition-colors text-xl`}
-        to={"/"}
-      >
+        to={"/"}>
         Powrót na stronę główną
       </Link>
     </>

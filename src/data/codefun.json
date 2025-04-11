@@ -1,0 +1,96 @@
+{
+  "Obiekty JS podstawy": [
+    {
+      "title": "Czym jest obiekt?",
+      "description": "Obiekt grupuje nam zmienne i funkcje w jedną całość. To znaczy, że zamiast tworzyć zmienne np. imiePsa, rasaPsa, możemy stworzyć obiekt pies z właściwościami \"imie\" i \"rasa\"",
+      "code": "",
+      "table": []
+    },
+    {
+      "title": "Jak stworzyć obiekt",
+      "description": "Obiekt tworzymy używając tzw. klamerek \"{}\". W środku wpisujemy właściwości obiektu",
+      "code": "const Dom = {\n\ttyp: \"jednorodzinny\",\n\tgaraz: false,\n\tiloscMieszkancow: 5\n};",
+      "table": []
+    },
+    {
+      "title": "Jak dostać się do właściwości obiektu",
+      "description": "Możemy to zrobić na dwa sposoby: po kropce (najczęściej spotykany) lub w nawiasach kwadratowych [] (znany z tablic)",
+      "code": "console.log(Dom.typ); // w konsoli wypisze \"jednorodzinny\"\nconsole.log(Dom[\"typ\"]); // też zadziała\nDom.typ = \"Dwurodzinny\"; // zmiana wartości",
+      "table": []
+    },
+    {
+      "title": "Dodanie nieistniejącej właściwości",
+      "description": "Aby dodać nową właściwość do obiektu, wystarczy po prostu ustawić jej jakąś wartość",
+      "code": "const osoba = {\n\timie: \"Jan\",\n\tnazwisko: \"Kowalski\",\n};\nosoba.wiek = 12;",
+      "table": []
+    },
+    {
+      "title": "Właściwości obiektu",
+      "description": "Właściwości możemy oznaczać liczbami, pojedynczymi słowami, zdaniami, a nawet emotkami. WAŻNE: sposób po kropce działa tylko z jednym słowem",
+      "code": "const jakisObiekt = {\n  1234: null,\n  \"ala ma kota\": true,\n  subway: \"surfers\",\n  \"👌\": \"emotka\",\n};",
+      "table": []
+    },
+    {
+      "title": "Funkcje tworzące obiekt",
+      "description": "Obiekty mozemy tworzyć dynamicznie za pomocą m.in funkcji.",
+      "code": "function stworzSamochod(marka, model) {\n  return {\n    marka: marka,\n    model: model,\n    czyNowy: true,\n  };\n}\n\nconst mercedes = stworzSamochod(\"Opel\", \"Astra\");\n// {marka: \"Opel\", model: \"Astra\", czyNowy: true}",
+      "table": []
+    },
+    {
+      "title": "Skrócony zapis",
+      "description": "Jeśli wstawiamy do obiektu jakąś zmienną lub argument funkcji, to zamiast dwa razy pisać tą samą nazwę, możemy to skrócić.",
+      "code": "function stworzSamochod(marka, model) {\n  return {\n    marka,\n    model,\n    czyNowy: true,\n  };\n}\n\nconst mercedes = stworzSamochod(\"Opel\", \"Astra\");\n// {marka: \"Opel\", model: \"Astra\", czyNowy: true}",
+      "table": []
+    },
+    {
+      "title": "Usuwanie obiektów",
+      "description": "Do usuwania obiektów służy nam słówko delete (z ang. usuń)",
+      "code": "delete Dom;",
+      "table": []
+    }
+  ],
+  "Zadania Obiekty JS podstawy": [
+    {
+      "title": "Zadanie 1",
+      "description": "Stwórz obiekt o nazwie mojZwierzak, który będzie miał trzy właściwości:\n\n- imie (np. „Burek”),\n\n- gatunek (np. „pies”),\n\n- wiek (np. 3).\n\nNa koniec, wyświetl ten obiekt w konsoli",
+      "code": "// wynik w konsoli:\n{imie: 'Burek', gatunek: 'pies', wiek: 3}",
+      "table": []
+    },
+    {
+      "title": "Zadanie 2",
+      "description": "Stwórz obiekt zwierzakKolegi, który będzie miał taki sam gatunek, jak twój zwierzak. Na koniec wypisz imie i gatunek tego zwierzaka w konsoli PODPOWIEDŹ: odwołaj się do obiektu mojZwierzak.",
+      "code": "",
+      "table": []
+    },
+    {
+      "title": "Zadanie 3",
+      "description": "Stwórz funkcję nowyTelefon(), która będzie przyjmować trzy argumenty: marka, model, pamiec, i zwracać nowo utworzony obiekt z tymi właściwościami.",
+      "code": "",
+      "table": []
+    },
+    {
+      "title": "Zadanie 4",
+      "description": "Utwórz trzy różne telefony i przypisz je do stałych (const). Usuń jeden z nich.",
+      "code": "",
+      "table": []
+    },
+    {
+      "title": "Zadanie 5",
+      "description": "Masz poniższy obiekt. Dodaj do niego właściwość \"cena ogółem\" (PODPOWIEDŹ: użyj nawiasów kwadratowych), która będzie przyjmować wartość ilości pomnożonej przez cenę za sztukę. Na koniec wypisz ten obiekt w konsoli",
+      "code": "const towar = {\n  nazwa: \"Pomidory\",\n  ilosc: 20,\n  \"cena za sztukę\": 140,\n};",
+      "table": []
+    },
+    {
+      "title": "Zadanie 6",
+      "description": "Stwórz obiekt sygnalizacja z właściwością kolor ustawioną na wartość \"czerwony\". Następnie zrób funkcję zmienKolor(), która będzie zmieniać kolor na następny w kolejności: czerwony na żółty, żółty na zielony, zielony na żółty, żółty na czerwony.",
+      "code": "",
+      "table": []
+    },
+    {
+      "title": "Zadanie 7 (trudniejsze)",
+      "description": "Stwórz tablicę o nazwie gracze, która będzie przechowywać obiekty z właściwościami nick, level i online. Właściwość online będzie przyjmować true lub false. Następnie wypisz w konsoli wszystkich graczy, którzy są online. PODPOWIEDŹ: użyj forEach",
+      "code": "",
+      "table": []
+    }
+  ]
+}
