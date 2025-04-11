@@ -1,5 +1,5 @@
 {
-  "Obiekty JS podstawy": [
+  "Obiekty JS": [
     {
       "title": "Czym jest obiekt?",
       "description": "Obiekt grupuje nam zmienne i funkcje w jedną całość. To znaczy, że zamiast tworzyć zmienne np. imiePsa, rasaPsa, możemy stworzyć obiekt pies z właściwościami \"imie\" i \"rasa\"",
@@ -49,7 +49,7 @@
       "table": []
     }
   ],
-  "Zadania Obiekty JS podstawy": [
+  "Zadania Obiekty JS": [
     {
       "title": "Zadanie 1",
       "description": "Stwórz obiekt o nazwie mojZwierzak, który będzie miał trzy właściwości:\n\n- imie (np. „Burek”),\n\n- gatunek (np. „pies”),\n\n- wiek (np. 3).\n\nNa koniec, wyświetl ten obiekt w konsoli",
@@ -90,6 +90,52 @@
       "title": "Zadanie 7 (trudniejsze)",
       "description": "Stwórz tablicę o nazwie gracze, która będzie przechowywać obiekty z właściwościami nick, level i online. Właściwość online będzie przyjmować true lub false. Następnie wypisz w konsoli wszystkich graczy, którzy są online. PODPOWIEDŹ: użyj forEach",
       "code": "",
+      "table": []
+    }
+  ],
+  "Obiekty JS cd": [
+    {
+      "title": "Zagnieżdżanie obiektów (obiekt w obiekcie)",
+      "description": "Właściwością obiektu może być każdy typ danych, łącznie z tablicą, a także innym obiektem",
+      "code": "const osoba = {\n  imie: \"Jan\",\n  nazwisko: \"Kowalski\",\n  adres: {\n    miasto: \"Rzeszów\",\n    ulica: \"Krakowska\",\n    \"numer budynku\": 18,\n  },\n  oceny: [5, 2, 3, 5, 5, 5, 4],\n};\nconsole.log(osoba.adres.miasto); // Rzeszów\nconsole.log(osoba.oceny[0]); // 5\n",
+      "table": []
+    },
+    {
+      "title": "Metody obiektów (funkcje w obiekcie)",
+      "description": "Właściwością obiektu może także być funkcja",
+      "code": "const osoba = {\n  imie: \"Jan\",\n  nazwisko: \"Kowalski\",\n  witaj() {\n    console.log(\"Dzień dobry\");\n  },\n};\n\nosoba.witaj(); // Dzień dobry\n",
+      "table": []
+    },
+    {
+      "title": "Słówko this",
+      "description": "\"this\" w metodzie wskazuje na obiekt, w którym znajduje się ta metoda. Można zapamiętać, że \"this\" wskazuje na obiekt \"przed kropką\"",
+      "code": "const osoba = {\n  imie: \"Jan\",\n  nazwisko: \"Kowalski\",\n  witaj() {\n    console.log(\"Dzień dobry, jestem \" + this.imie);\n  },\n};\n\nosoba.witaj(); // Dzień dobry, jestem Jan\n",
+      "table": []
+    }
+  ],
+  "Zadania Obiekty JS cd": [
+    {
+      "title": "Zadanie 1",
+      "description": "Stwórz obiekt auto, który ma właściwości:\n\nmarka,\n\nmodel,\n\nwłaściciel (obiekt z właściwościami imie i nazwisko),\n\nrokProdukcji.\n\nPo stworzeniu, wypisz imię właściciela oraz model samochodu.",
+      "code": "",
+      "table": []
+    },
+    {
+      "title": "Zadanie 2",
+      "description": "Stwórz obiekt gracz z właściwościami:\n\nnick,\n\npoziom,\n\nmetodą poziomUp(), która zwiększa poziom o 1 i wypisuje komunikat, np. \"Gratulacje, awansowałeś na poziom 2!\".\n\nZastosuj słowo kluczowe this w metodzie, aby uzyskać dostęp do właściwości obiektu",
+      "code": "",
+      "table": []
+    },
+    {
+      "title": "Zadanie 3",
+      "description": "",
+      "code": "Stwórz obiekt użytkownik z właściwościami:\n\nimie,\n\nnazwisko,\n\nwiek,\n\nadres – obiekt z właściwościami ulica, miasto, kodPocztowy,\n\nmetodą powitanie(), która wyświetla komunikat powitalny, np. \"Witaj, Jan Kowalski!\".\n\nZastosuj this w metodzie, aby wypisać powitanie i dane użytkownika.",
+      "table": []
+    },
+    {
+      "title": "Zadanie 4",
+      "description": "",
+      "code": "Stwórz obiekt biblioteka z właściwościami:\n\nnazwa,\n\nadres,\n\nksiazki – tablica obiektów, w której każdy obiekt to książka\nz właściwościami: tytuł, autor.\n\ndodajKsiazke(tytul, autor) – metoda, która dodaje książkę do tablicy ksiazki.\n\nPo dodaniu książki, wypisz tytuły wszystkich książek w bibliotece.",
       "table": []
     }
   ]
