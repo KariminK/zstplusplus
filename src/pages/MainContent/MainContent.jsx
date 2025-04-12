@@ -115,6 +115,6 @@ const MainContent = ({ data, heading, theme }) => {
 MainContent.propTypes = {
   data: PropTypes.object,
   heading: PropTypes.string,
-  theme: PropTypes.string,
+  theme: PropTypes.oneOf(["green", "cyan", "emerald", "sky", "teal"]),
 };
 export default MainContent;

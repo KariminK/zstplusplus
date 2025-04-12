@@ -97,6 +97,6 @@ CodeSection.propTypes = {
   description: PropTypes.string,
   code: PropTypes.string,
   table: PropTypes.array,
-  color: PropTypes.oneOf(["green", "cyan", "emerald"]),
+  color: PropTypes.oneOf(["green", "cyan", "emerald", "sky", "teal"]),
 };
 export default CodeSection;
