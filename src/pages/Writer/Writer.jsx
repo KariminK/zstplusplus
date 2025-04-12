@@ -1,7 +1,5 @@
 import { useState } from "react";
-import Label from "./Components/Label";
-import TableRow from "./Components/TableRow/TableRow";
-
+import { TableRow, Label } from "./Components";
 const Writer = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -72,13 +70,13 @@ const Writer = () => {
   });
   return (
     <section className="max-w-4xl mx-auto">
-      <h1 className="text-center text-6xl my-5 font-bold text-white font-kreon">
+      <h1 className="my-5 text-6xl font-bold text-center text-white font-kreon">
         Writer
       </h1>
       <form className="">
         <Label text={"Tytuł:"} htmlFor={"section-title"}>
           <input
-            className="bg-transparent border rounded w-3/4 p-2"
+            className="w-3/4 p-2 bg-transparent border rounded"
             type="text"
             name="section-title"
             id="section-title"
@@ -91,46 +89,42 @@ const Writer = () => {
             rows={8}
             name="section-description"
             id="section-description"
-            className="bg-transparent p-5 w-3/4 border rounded"
+            className="w-3/4 p-5 bg-transparent border rounded"
             onChange={(e) => inputChangeHandle(e, setDescription)}
-            value={description}
-          ></textarea>
+            value={description}></textarea>
         </Label>
         <Label text={"Kod: "} htmlFor={"section-code"}>
           <textarea
             rows={10}
             name="section-code"
             id="section-code"
-            className="bg-gray-900 text-base p-5 font-code w-3/4 border rounded"
+            className="w-3/4 p-5 text-base bg-gray-900 border rounded font-code"
             onChange={(e) => inputChangeHandle(e, setCode)}
             onKeyDown={codeKeyDownHandle}
-            value={code}
-          ></textarea>
+            value={code}></textarea>
         </Label>
         <h2 className="text-3xl text-white text-bold">Tabela</h2>
         <div className="flex justify-between my-3">
           <button
-            className="border-2 rounded-lg text-white font-bold p-3"
-            onClick={(e) => addToTableHandle(e, columns, setColumns, true)}
-          >
+            className="p-3 font-bold text-white border-2 rounded-lg"
+            onClick={(e) => addToTableHandle(e, columns, setColumns, true)}>
             Dodaj kolumnę
           </button>
           <button
-            className="border-2 rounded-lg text-white font-bold p-3"
-            onClick={(e) => removeFromTableHandle(e, columns, setColumns, true)}
-          >
+            className="p-3 font-bold text-white border-2 rounded-lg"
+            onClick={(e) =>
+              removeFromTableHandle(e, columns, setColumns, true)
+            }>
             Usuń kolumnę
           </button>
           <button
-            className="border-2 rounded-lg text-white font-bold p-3"
-            onClick={(e) => addToTableHandle(e, rows, setRows)}
-          >
+            className="p-3 font-bold text-white border-2 rounded-lg"
+            onClick={(e) => addToTableHandle(e, rows, setRows)}>
             Dodaj wiersz
           </button>
           <button
-            className="border-2 rounded-lg text-white font-bold p-3"
-            onClick={(e) => removeFromTableHandle(e, rows, setRows)}
-          >
+            className="p-3 font-bold text-white border-2 rounded-lg"
+            onClick={(e) => removeFromTableHandle(e, rows, setRows)}>
             Usuń wiersz
           </button>
         </div>
@@ -151,12 +145,11 @@ const Writer = () => {
 
         <Label text={"Output:"}>
           <textarea
-            className="w-3/4 text-white font-code bg-transparent border border-green-500 rounded outline-none"
+            className="w-3/4 text-white bg-transparent border border-green-500 rounded outline-none font-code"
             value={output}
             readOnly
             name="output"
-            id="output"
-          ></textarea>
+            id="output"></textarea>
         </Label>
       </form>
     </section>

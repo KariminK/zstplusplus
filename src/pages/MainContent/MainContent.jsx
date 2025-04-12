@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import Contents from "../../components/Contents/Contents";
+import { Contents } from "../../components";
 import PropTypes from "prop-types";
 
 const MainContent = ({ data, heading, theme }) => {

@@ -1,12 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import Homepage from "./pages/Home/Homepage";
-import MainContent from "./pages/MainContent/MainContent";
-import InProgressPage from "./pages/InProgress/InProgress";
-import Chapter from "./components/Chapter/Chapter";
+import { Homepage, MainContent, InProgressPage, Writer } from "./pages";
+import { Chapter } from "./components";
 import obiektowe from "./data/obiektowe.json";
 import ppai from "./data/ppai.json";
 import codefun from "./data/codefun.json";
-import Writer from "./pages/Writer/Writer";
 const App = () => {
   return (
     <Routes>
