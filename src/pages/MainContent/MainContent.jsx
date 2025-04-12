@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import { Contents } from "../../components";
+import { Contents, Footer } from "../../components";
 import PropTypes from "prop-types";
 
 const MainContent = ({ data, heading, theme }) => {
@@ -109,6 +109,7 @@ const MainContent = ({ data, heading, theme }) => {
         to={"/"}>
         Powrót na stronę główną
       </Link>
+      <Footer theme={Theme} />
     </>
   );
 };

@@ -1,9 +1,5 @@
 import Chapter from "./Chapter/Chapter";
 import CodeSection from "./CodeSection/CodeSection";
 import Contents from "./Contents/Contents";
-
-export default {
-  Chapter,
-  CodeSection,
-  Contents,
-};
+import Footer from "./Footer/Footer";
+export { Chapter, CodeSection, Contents, Footer };

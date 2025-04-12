@@ -83,7 +83,7 @@ const CodeSection = ({ title, description, code, table, color = "green" }) => {
         </p>
         {Boolean(code) && (
           <code
-            className={`my-4 bg-gray-900 p-5 border ${colors.borderColor} block whitespace-pre font-code text-white`}>
+            className={`my-4 bg-gray-900 p-5 border ${colors.borderColor} block whitespace-pre font-code font-semibold text-white`}>
             {code}
           </code>
         )}

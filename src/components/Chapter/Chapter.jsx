@@ -27,9 +27,9 @@ const Chapter = ({ id, sections = [], color }) => {
     );
   });
   return (
-    <main id={id} className="flex flex-wrap gap-10 max-w-4xl mx-auto">
+    <main id={id} className="flex flex-wrap max-w-4xl gap-10 mx-auto">
       {chapter && (
-        <h1 className=" w-full text-center text-white font-kreon uppercase text-4xl">
+        <h1 className="w-full text-4xl text-center text-white uppercase font-kreon">
           {chapter}
         </h1>
       )}

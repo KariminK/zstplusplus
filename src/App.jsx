@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Homepage, MainContent, InProgressPage, Writer } from "./pages";
+import { Homepage, InProgressPage, MainContent, Writer } from "./pages";
 import { Chapter } from "./components";
 import obiektowe from "./data/obiektowe.json";
 import ppai from "./data/ppai.json";
