@@ -138,5 +138,13 @@
       "code": "Stwórz obiekt biblioteka z właściwościami:\n\nnazwa,\n\nadres,\n\nksiazki – tablica obiektów, w której każdy obiekt to książka\nz właściwościami: tytuł, autor.\n\ndodajKsiazke(tytul, autor) – metoda, która dodaje książkę do tablicy ksiazki.\n\nPo dodaniu książki, wypisz tytuły wszystkich książek w bibliotece.",
       "table": []
     }
+  ],
+  "Tablice Python": [
+    {
+      "title": "Kod lekcja 04/06/2025",
+      "description": "",
+      "code": "zakupy = [\"jablko\", \"marchewka\", \"banan\"]\n# Dodawanie elementu na koniec tablicy\nzakupy.append(\"gruszka\")\n\n# Usuwanie ostatniego elementu z tablicy\nzakupy.pop()\n\n# Usuwanie jakiegoś elementu\nzakupy.remove(\"jablko\")\n\n# Wyswietlanie tej tablicy\nfor produkt in zakupy:\n    print(produkt)",
+      "table": []
+    }
   ]
 }
