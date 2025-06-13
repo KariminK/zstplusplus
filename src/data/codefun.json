@@ -146,5 +146,55 @@
       "code": "zakupy = [\"jablko\", \"marchewka\", \"banan\"]\n# Dodawanie elementu na koniec tablicy\nzakupy.append(\"gruszka\")\n\n# Usuwanie ostatniego elementu z tablicy\nzakupy.pop()\n\n# Usuwanie jakiegoś elementu\nzakupy.remove(\"jablko\")\n\n# Wyswietlanie tej tablicy\nfor produkt in zakupy:\n    print(produkt)",
       "table": []
     }
+  ],
+  "Tablice JS": [
+    {
+      "title": "Co to jest tablica",
+      "description": "Tablica to jest zbiór elementów. Do każdego z nich jest przypisany indeks liczony od zera (dla pierwszego elementu indeks wynosi 0, dla drugiego 1 itd)",
+      "code": "",
+      "table": []
+    },
+    {
+      "title": "Jak tworzymy tablice",
+      "description": "Tablicę tworzymy za pomocą nawiasów kwadratowych []. W środku nich wpisujemy elementy, które chcemy w niej zamieścić",
+      "code": "const przykladowaTablica = [1, 2, 523, 23, 41];",
+      "table": []
+    },
+    {
+      "title": "Elementy o różnym typie danych",
+      "description": "Tablica może mieć elementy o dowolnym typie danych, jednak zalecałbym trzymać się jednego typu w jednej tablicy",
+      "code": "const przykladowaTablica = [1, {nazwa: \"obiekt\"}, \"tekst\", null, true];",
+      "table": []
+    },
+    {
+      "title": "Jak dostać się do jednego elementu",
+      "description": "Najczęściej dostajemy się do niego za pomocą jego indeksu. Podajemy go w nawiasach kwadratowych zaraz po nazwie tablicy",
+      "code": "const liczby = [1,2,3,4,5,6,7,8];\nconsole.log(liczby[0]);\n// wynik w konsoli: 1",
+      "table": []
+    },
+    {
+      "title": "Jak dodać element na koniec tablicy",
+      "description": "Służy do tego metoda push(). Jako argument podajemy element, który chcemy do niej dodać",
+      "code": "const imiona = [\"jan\", \"konrad\", \"ala\"];\nimiona.push(\"maciek\");\n\nconsole.log(imiona);\n// wynik w konsoli:\n// [\"jan\", \"konrad\", \"ala\", \"maciek\"]",
+      "table": []
+    },
+    {
+      "title": "Jak usunąć element z końca tablicy",
+      "description": "Służy do tego metoda pop(). Nie przyjmuje ona argumentów",
+      "code": "const imiona = [\"jan\", \"konrad\", \"ala\"];\nimiona.pop();\n\nconsole.log(imiona);\n// wynik w konsoli:\n// [\"jan\", \"konrad\"]",
+      "table": []
+    },
+    {
+      "title": "Jak sprawdzić długość tablicy",
+      "description": "Służy do tego właściwość length. UWAGA: TO NIE JEST FUNKCJA I NIE POTRZEBA NAWIASÓW",
+      "code": "const tablica = [1, 2, 3, 4, 5];\nconsole.log(tablica.length);\n//Wynik w konsoli: 5",
+      "table": []
+    },
+    {
+      "title": "Jak przejść przez każdy element tablicy",
+      "description": "Możemy użyć do tego zwykłej pętli for, która idzie od 0 do długości tablicy - 1 (indeksy liczymy od zera). Naszym elementem będzie zatem element tablicy o indeksie i",
+      "code": "const tablica = [1,2,3,4,5,6,7,8];\n\nfor(let i = 0; i < tablica.length - 1; i++){\n\tconsole.log(tablica[i]);\n\t// tablica[i] to nasz element\n}\n",
+      "table": []
+    }
   ]
 }
