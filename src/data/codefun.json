@@ -196,5 +196,42 @@
       "code": "const tablica = [1,2,3,4,5,6,7,8];\n\nfor(let i = 0; i < tablica.length - 1; i++){\n\tconsole.log(tablica[i]);\n\t// tablica[i] to nasz element\n}\n",
       "table": []
     }
+  ],
+  "pliki python": [
+    {
+      "title": "Odczytywanie pliku w pythonie",
+      "description": "Plik odczytujemy za pomocą metody read(). Jako pierwszy argument podajemy ścieżke do pliku. Drugim argumentem będzie tryb otwarcia (np. \"r\" - odczyt, \"w\" - zapis). Wynik funkcji przypisujemy do zmiennej",
+      "code": "file = open(\"./dane.txt\", \"r\")",
+      "table": []
+    },
+    {
+      "title": "Podstawowe tryby otwarcia pliku (drugi argument metody open())",
+      "description": "Do każdego z tych trybów możemy dodać atrybut \"b\" (np. \"rb\", \"wb\", \"ab\"). Wtedy plik otworzy się w trybie do danych binarnych (np. obrazy, dźwięk, wideo itd)",
+      "code": "",
+      "table": [
+        ["Tryb otwarcia", "Co robi?"],
+        ["\"r\"", "otwiera w trybie odczytu danych z pliku"],
+        ["\"w\"", "czyści plik i zapisuje w nim podane przez nas dane"],
+        ["\"a\"", "dopisuje do pliku podane przez nas dane"]
+      ]
+    },
+    {
+      "title": "Odczyt całego pliku na raz",
+      "description": "Możemy odczytać cały plik na raz za pomocą metody read() na wcześniej otwartym przez nas pliku",
+      "code": "file = open(\"./dane.txt\", \"r\") # otworzy się w trybie odczytu\n\nprint(file.read())\n\n# W konsoli pokażą nam się dane z pliku dane.txt",
+      "table": []
+    },
+    {
+      "title": "Zamykanie pliku",
+      "description": "Jeśli otworzymy jakiś plik, musimy go zamknąć, kiedy skończymy z nim pracę. Do tego posłuży nam metoda close()",
+      "code": "file = open(\"./dane.txt\", \"r\") # otworzy się w trybie odczytu\n\nprint(file.read())\n\nfile.close()",
+      "table": []
+    },
+    {
+      "title": "Zapisywanie danych do pliku",
+      "description": "Aby zapisać dane w pliku, używamy metody write(). W argumencie podajemy dane, które chcemy w nim zapisać",
+      "code": "file = open(\"./dane.txt\", \"w\") # otworzy się w trybie zapisu\n\nfile.write(\"przykladowy tekst\")\n\n# dotychczasowa zawartość pliku się usunie (tryb \"w\")\n# treść pliku to będzie \"przykładowy tekst\"\n\nfile.close()",
+      "table": []
+    }
   ]
 }
