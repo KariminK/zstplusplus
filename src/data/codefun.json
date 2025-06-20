@@ -233,5 +233,49 @@
       "code": "file = open(\"./dane.txt\", \"w\") # otworzy się w trybie zapisu\n\nfile.write(\"przykladowy tekst\")\n\n# dotychczasowa zawartość pliku się usunie (tryb \"w\")\n# treść pliku to będzie \"przykładowy tekst\"\n\nfile.close()",
       "table": []
     }
+  ],
+  "DOM JS": [
+    {
+      "title": "Czym jest DOM?",
+      "description": "DOM to skrót od ang. Document Object Model (Obiektowy Model Dokumentu). W praktyce oznacza to, że JS każdy element HTML traktuje jako osobny obiekt, czyli taki zbiór właściwości. Każdy z tych elementów jest ułożony w konkretnej hierarchii (drzewie dokumentu).",
+      "code": "",
+      "table": []
+    },
+    {
+      "title": "Jak dostać się do elementu HTML w JS?",
+      "description": "Do tego możemy użyć kilku metod. Najprostszą z nich jest document.getElementById(). W argumencie podajemy wartość atrybutu id elementu, do którego chcemy się odwołać",
+      "code": "const btn = document.getElementById(\"btn\");\n// odwołamy się do elementu o id \"btn\"",
+      "table": []
+    },
+    {
+      "title": "Alternatywa dla getElementById",
+      "description": "Alternatywą, i znacznie częściej używaną, metodą jest document.querySelector(). W argumencie podajemy selektor css. Nasza zmienna przyjmnie pierwszy element wybrany, przez ten selektor",
+      "code": "const btn = document.querySelector(\"#btn\");\n// odwołamy się do elementu o id \"btn\"\n\nconst ul = document.querySelector(\"ul\");\n// odwołamy się do pierwszej listy nieuporządkowanej\n\nconst tekst = document.querySelector(\"div p\");\n// odwołamy się do pierwszego paragrafu znajdującego się w div",
+      "table": []
+    },
+    {
+      "title": "Jak zmienić atrybuty html w js",
+      "description": "Wartość atrybutów takich jak \"src\", \"href\", i wielu innych zmieniamy po kropce. W podobny sposób jak wartości zmiennych",
+      "code": "const obrazek = document.querySelector(\"img\");\n\nobrazek.src = \"./obraz.jpg\"; // zmieniamy źródło obrazka",
+      "table": []
+    },
+    {
+      "title": "Jak zmienić style CSS w JS",
+      "description": "Style danego elementu zmieniamy podobnie jak wartości atrybutów. Z tym, że nazwy styli piszemy bez pauz i każdy wyraz, oprócz pierwszego, z dużej litery (tzw. camelCase).\nPrzykładowo: \"background-color\" (CSS) - \"backgroundColor\" (JS)",
+      "code": "const paragraf = document.querySelector(\"p\");\n\nparagraf.style.backgroundColor = \"red\";\n\nparagraf.style.color = \"yellow\";\n\nparagraf.style.fontSize = \"24px\";",
+      "table": []
+    },
+    {
+      "title": "Jak zmienić tekst elementu HTML",
+      "description": "Możemy go zmienić za pomocą właściwości textContent",
+      "code": "const paragraf = document.getElementById(\"tekst\");\n\nparagraf.textContent = \"Przykładowy tekst\";",
+      "table": []
+    },
+    {
+      "title": "Jak usunąć element HTML",
+      "description": "Używamy do tego metody remove()",
+      "code": "const paragraf = document.getElementById(\"tekst\");\n\nparagraf.remove();\n\n// paragraf zniknie z naszej strony internetowej",
+      "table": []
+    }
   ]
 }
