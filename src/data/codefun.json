@@ -234,6 +234,32 @@
       "table": []
     }
   ],
+  "klasy python": [
+    {
+      "title": "Co to jest klasa?",
+      "description": "Klasa to szablon do tworzenia obiektów. Obiekt to zbiór właściwości",
+      "code": "class nazwaKlasy{\n\twlasciwosc_1 = 3\n\twlasciwosc_2 = 4\n}\n\nobiekt = nazwaKlasy()\n\nprint(obiekt.wlasciwosc_1) // w konsoli wypisze 3 ",
+      "table": []
+    },
+    {
+      "title": "Jak odwołać się do właściwości obiektu",
+      "description": "Do wartości danej właściwości możemy dostać się po kropce.",
+      "code": "class samochod{\n\tmarka = \"Lamborghini\"\n\tmodel = \"Huracan\"\n}\n\nlambo = samochod()\n\nprint(lambo.marka) # wypisze lamborghini\n\nlambo.marka = \"ferrari\" # zmieniamy marke na ferrari\n\nprint(lambo.marka) # wypisze ferrari",
+      "table": []
+    },
+    {
+      "title": "Czym są metody?",
+      "description": "Metody to są funkcję, które działają w obrębie obiektu. Żeby dana funkcja była metodą, musi ona przyjmować specjalny parametr - self. Self przechowuje informacje o obiekcie, dla którego jest wywoływana dana metoda.",
+      "code": "class samochod{\n\tmarka = \"Lamborghini\"\n\tmodel = \"Huracan\"\n\twypiszMarke(self):\n\t\tprint(self.marka)\n}\n\nlambo = samochod()\nlambo.wypiszMarke() # w konsoli wyświetli Lamborghini\nlambo.marka = \"ferrari\"\nlambo.wypiszMarke() # w konsoli wyświetli ferrari",
+      "table": []
+    },
+    {
+      "title": "Czym jest konstruktor?",
+      "description": "Konstruktor to specjalna metoda, która wywołuje się przy tworzeniu obiektu danej klasy. W praktyce najczęściej używamy jej do wstawienia wartości do obiektu. W pythonie tworzymy go jako metodę o nazwie __init__, która jako pierwszy argument przyjmuje self.",
+      "code": "class samochod{\n\t__init__(self, nowaMarka, nowyModel):\n\t\tself.marka = nowaMarka\n\t\tself.model = nowyModel\n\twypiszMarke(self):\n\t\tprint(self.marka)\n\nlambo = samochod(\"Lamborghini\", \"Huracan\")\nferrari = samochod(\"Ferrari\", \"Enzo\")\n\nlambo.wypiszMarke() # w konsoli wypisze Lamborghini\nferrari.wypiszMarke() # w konsoli wypisze Ferrari",
+      "table": []
+    }
+  ],
   "DOM JS": [
     {
       "title": "Czym jest DOM?",
